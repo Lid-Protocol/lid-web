@@ -14,7 +14,7 @@ const About: FC = () => (
       <FlexBox flexDirection="column" alignItems="center" flexWrap="wrap">
         <H2 marginBottom={4}>Main Features</H2>
 
-        <Button variant="outlineSmall">
+        <Button variant="outline">
           Download Whitepaper
         </Button>
 

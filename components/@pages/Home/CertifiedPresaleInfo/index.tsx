@@ -7,7 +7,7 @@ import ContentWrapper from 'components/ContentWrapper';
 import PresaleImage from './presale-image.png';
 
 const CertifiedPresaleInfo: FC = () => (
-  <ContentWrapper pt={5} pb={5.5} mt={[0, 5]} mb={[0, 0]}>
+  <ContentWrapper pt={5} pb={6.5} mt={[0, 5]} mb={[0, 0]}>
     <FlexBox justifyContent="center" flexWrap="wrap">
 
       <Box id="presale" maxWidth={['150px', '240px', '240px']} mr={[4, 6]} mb={[5.5, 5.5, 0]}>
