@@ -7,6 +7,7 @@ import {
   CertifiedPresaleInfo,
   TokenDistributionSection,
   Legal,
+  Roadmap,
 } from 'components/@pages/Home';
 
 const Home: FC = () => (
@@ -19,6 +20,7 @@ const Home: FC = () => (
     <About />
     <CertifiedPresaleInfo />
     <TokenDistributionSection />
+    <Roadmap />
     <Legal />
   </>
 );
