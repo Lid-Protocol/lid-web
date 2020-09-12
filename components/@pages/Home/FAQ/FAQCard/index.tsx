@@ -32,7 +32,9 @@ const FAQCard: FC<IFAQCard> = ({ title, body }) => {
           fontSize={[18, 22]}
         >
           <p>{`Q. ${title}`}</p>
-          <p>{isOpen ? '-' : '+'}</p>
+          <FlexBox alignItems="center" justifyContent="center">
+            <p>{isOpen ? '-' : '+'}</p>
+          </FlexBox>
         </FlexBox>
       </TitleWrapper>
 
