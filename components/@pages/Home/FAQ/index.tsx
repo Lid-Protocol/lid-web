@@ -7,7 +7,7 @@ const FAQ: FC = () => (
   <Box id="faq" width="100%" bg="white">
     <ContentWrapper pt={5} pb={6}>
       <FlexBox justifyContent="center">
-        <H2 mb={6} mt={5} color="black">
+        <H2 mb={6} mt={5} color="offBlack">
           FAQ
         </H2>
       </FlexBox>
