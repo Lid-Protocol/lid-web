@@ -1,31 +1,35 @@
-import { FC, useState } from 'react';
+import { FC, ReactNode, useState } from 'react';
 import styled from 'styled-components';
-import { Box, Button, FlexBox, Image } from 'components/@basic';
+import { Box, BoxType, Button, FlexBox, Image } from 'components/@basic';
+import { colors } from 'styles/theme';
 
 interface IFAQCard {
   title: string;
-  body: Array<JSX.Element> | JSX.Element;
 }
 
 const TitleWrapper = styled(Box)`
-  background: linear-gradient(to right, #3dbbfa, #246b8f);
+  cursor: pointer;
+  transition-duration: 70ms;
+  &:hover { opacity: .9 }
+  &:active { opacity: .8 }
 `;
 
 const Collapse = styled.div`
   overflow: hidden;
   height: ${(props: any) => (props.isOpen ? 'auto' : '0px')};
+  cursor: default;
   li {
     list-style-type: circle;
     list-style-position: inside;
   }
 `;
 
-const FAQCard: FC<IFAQCard> = ({ title, body }) => {
+const FAQCard: BoxType<IFAQCard> = ({ title, children, ...props }) => {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <Box id="faq card" width="100%" mb={[3]}>
-      <TitleWrapper px={[17, 25]} py={[3, 13]} onClick={() => setOpen(!isOpen)}>
+    <Box id="faq card" width="100%" mb={[3]} {...props}>
+      <TitleWrapper as="a" display="block" background={colors.lightBlueGradient} px={[17, 25]} py={[3, 13]} onClick={() => setOpen(!isOpen)}>
         <FlexBox
           justifyContent="space-between"
           fontWeight={[500]}
@@ -42,11 +46,12 @@ const FAQCard: FC<IFAQCard> = ({ title, body }) => {
         <Box
           fontSize={[16, 20]}
           color="black"
-          border="1px solid #366EF8"
+          border="1px solid"
+          borderColor="blue"
           px={[17, 34]}
           py={[16, 27]}
         >
-          {body}
+          {children}
         </Box>
       </Collapse>
     </Box>
