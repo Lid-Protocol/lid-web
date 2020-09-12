@@ -52,7 +52,7 @@ const Roadmap: FC = () => {
         <FlexBox
           flexDirection="column"
           justifyContent="center"
-          alignItems={isMobile ? 'flex-start' : 'center'}
+          alignItems={['flex-start', 'center']}
         >
           <H2 mb={6} mt={5}>
             Roadmap
@@ -61,11 +61,10 @@ const Roadmap: FC = () => {
             flexDirection="column"
             justifyContent="center"
             alignItems="center"
+            marginLeft={[-10, 0]}
           >
             <TagLine />
-
             <Image width="40px" height="40px" src={LaunchImage} />
-
             <TagLine />
           </FlexBox>
 

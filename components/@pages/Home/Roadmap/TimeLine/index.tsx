@@ -79,7 +79,7 @@ const TimeLine: FC<ITimeLine> = ({ date, events }) => (
     <FlexBox
       flexDirection="column"
       justifyContent="center"
-      alignItems={isMobile ? 'flex-start' : 'center'}
+      alignItems={['flex-start', 'center']}
     >
       {events.map((event, index) => (
         <Event key={event}>
