@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { isMobile } from 'react-device-detect';
 import { Box, FlexBox } from 'components/@basic';
 
 const Event = styled.div`
