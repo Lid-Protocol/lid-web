@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { isMobile } from 'react-device-detect';
 import { Box, FlexBox, Image } from 'components/@basic';
 import ContentWrapper from 'components/ContentWrapper';
 import H2 from 'components/H2';
