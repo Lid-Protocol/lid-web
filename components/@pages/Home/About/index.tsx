@@ -8,20 +8,20 @@ import ContentWrapper from 'components/ContentWrapper';
 import FeatureCardList from './FeatureCardList';
 
 const About: FC = () => (
-  <Box id="about" boxShadow={`inset 0 -110px 0 ${colors.darkBlue}`} background={colors.lightBlueGradient} py={5}>
+  <Box
+    id="about"
+    boxShadow={`inset 0 -110px 0 ${colors.darkBlue}`}
+    background={colors.lightBlueGradient}
+    py={5}
+  >
     <ContentWrapper pt={4}>
-
       <FlexBox flexDirection="column" alignItems="center" flexWrap="wrap">
         <H2 marginBottom={4}>Main Features</H2>
 
-        <Button variant="outline">
-          Download Whitepaper
-        </Button>
+        <Button variant="white">Download Whitepaper</Button>
 
         <FeatureCardList marginTop={5.5} marginX="auto" width="100%" />
-
       </FlexBox>
-
     </ContentWrapper>
   </Box>
 );
