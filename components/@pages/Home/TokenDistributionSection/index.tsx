@@ -9,17 +9,36 @@ const TokenDistributionSection: FC = () => (
   <Box id="tokenomics" width="100%" bg="white">
     <ContentWrapper pt={[6, 4.5]} pb={6}>
       <FlexBox justifyContent="center">
-        <FlexBox flexDirection={['column', 'column', 'row']} justifyContent="center" flexWrap="wrap" mt={[0, 5.5]}>
-
-          <Box width={['100%']} maxWidth={['300px', '300px', '300px', '320px']} mr={[0, 0, 6, 7]} mb={[6.5, 5.5, 0]}>
+        <FlexBox
+          flexDirection={['column', 'column', 'row']}
+          justifyContent="center"
+          flexWrap="wrap"
+          mt={[0, 5.5]}
+        >
+          <Box
+            width={['100%']}
+            maxWidth={['300px', '300px', '300px', '320px']}
+            mr={[0, 0, 6, 7]}
+            mb={[6.5, 5.5, 0]}
+          >
             <Image width="100%" height="auto" src={DistributionDonutList} />
-            <Button variant="gradient" mt={5}>Smart contract</Button>
+            <Button
+              variant="gradient"
+              mt={5}
+              href="https://etherscan.io/token/0x0417912b3a7AF768051765040A55BB0925D4DDcF"
+            >
+              Smart contract
+            </Button>
           </Box>
 
-          <Box width={['100%']} maxWidth={['300px', '300px', '300px', '320px']} mr={0} mb={[5.5, 5.5, 0]}>
+          <Box
+            width={['100%']}
+            maxWidth={['300px', '300px', '300px', '320px']}
+            mr={0}
+            mb={[5.5, 5.5, 0]}
+          >
             <Image width="100%" height="auto" src={DistributionDonutImage} />
           </Box>
-
         </FlexBox>
       </FlexBox>
     </ContentWrapper>

@@ -14,52 +14,62 @@ import mastodonIcon from './mastodon.png';
 const socialLinks = [
   {
     title: 'Discord',
-    href: '#',
+    href: 'https://discord.gg/3bwjgF',
     iconSrc: discordIcon,
   },
   {
     title: 'Telegram',
-    href: '#',
+    href: 'https://t.me/LIDProtocol',
     iconSrc: telegramIcon,
   },
   {
     title: 'Twitter',
-    href: '#',
+    href: 'https://twitter.com/lid_protocol',
     iconSrc: twitterIcon,
   },
   {
     title: 'Medium',
-    href: '#',
+    href: 'https://medium.com/@LIDProtocol',
     iconSrc: mediumIcon,
   },
   {
     title: 'Reddit',
-    href: '#',
+    href: 'https://www.reddit.com/r/LIDProtocol/',
     iconSrc: redditIcon,
   },
   {
     title: 'GitHub',
-    href: '#',
+    href: 'https://github.com/carlsbad-sunshine/lid-contracts',
     iconSrc: githubIcon,
   },
   {
     title: 'Peepeth',
-    href: '#',
+    href: 'https://peepeth.com/LIDProtocol',
     iconSrc: peepethIcon,
   },
   {
     title: 'Mastodon',
-    href: '#',
+    href: 'https://mastodon.online/@LIDProtocol',
     iconSrc: mastodonIcon,
   },
 ];
 
 const SocialLinksList: BoxType = ({ ...props }) => (
   <Box {...props}>
-    <List display="flex" justifyContent="center" flexDirection="row" flexWrap="wrap">
+    <List
+      display="flex"
+      justifyContent="center"
+      flexDirection="row"
+      flexWrap="wrap"
+    >
       {socialLinks.map(({ title, href, iconSrc }) => (
         <List.Item display="inline-block" key={iconSrc} mb={4} ml={3} mr={3}>
-          <Box bg="socialBackground" width={[32, 40]} height={[32, 40]} borderRadius="50%">
+          <Box
+            bg="socialBackground"
+            width={[32, 40]}
+            height={[32, 40]}
+            borderRadius="50%"
+          >
             <a href={href}>
               <Image height="100%" width="100%" src={iconSrc} alt={title} />
             </a>
@@ -72,13 +82,11 @@ const SocialLinksList: BoxType = ({ ...props }) => (
 
 const Footer: FC = () => (
   <ContentWrapper id="footer" as="footer" mb={5}>
-
     <SocialLinksList mb={5} />
 
     <Text display="block" textAlign="center" fontSize={2} color="gray" py={4.5}>
       &copy; 2020 Liquidity Dividends Protocol. All rights reserved.
     </Text>
-
   </ContentWrapper>
 );
 

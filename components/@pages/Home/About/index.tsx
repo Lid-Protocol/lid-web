@@ -18,7 +18,12 @@ const About: FC = () => (
       <FlexBox flexDirection="column" alignItems="center" flexWrap="wrap">
         <H2 marginBottom={4}>Main Features</H2>
 
-        <Button variant="white">Download Whitepaper</Button>
+        <Button
+          variant="white"
+          href="https://ec5fa088-d20c-4213-b3a7-aec249c6d6e0.filesusr.com/ugd/e22d12_8dced0a3b4fc452490975d37ee933615.pdf"
+        >
+          Download Whitepaper
+        </Button>
 
         <FeatureCardList marginTop={5.5} marginX="auto" width="100%" />
       </FlexBox>
