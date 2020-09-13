@@ -46,7 +46,7 @@ const Roadmap: FC = () => {
   ];
 
   return (
-    <Box width="100%">
+    <Box width="100%" id="roadmap">
       <ContentWrapper pt={5} pb={6}>
         <FlexBox
           flexDirection="column"
