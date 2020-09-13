@@ -25,18 +25,24 @@ const MenuWrapper = styled.div`
   z-index: 1;
 `;
 
+const ImageWrapper = styled(Image)``;
+
 const VerticalMenu: FC = () => {
   const [isOpen, setOpen] = useState(false);
 
   return (
     <Box variant="black">
       {!isOpen && (
-        <Image src={hamburgImage} width={[20]} onClick={() => setOpen(true)} />
+        <ImageWrapper
+          src={hamburgImage}
+          width={[20]}
+          onClick={() => setOpen(true)}
+        />
       )}
       {isOpen && (
         <MenuWrapper>
           <FlexBox justifyContent="flex-end">
-            <Image
+            <ImageWrapper
               src={closeImage}
               width={[15]}
               onClick={() => setOpen(false)}
@@ -45,7 +51,9 @@ const VerticalMenu: FC = () => {
           <List fontSize={3} fontWeight={500}>
             {menuItems.map(([label, href]) => (
               <List.Item key={href} mb={4}>
-                <a href={href}>{label}</a>
+                <a href={href} onClick={() => setOpen(false)}>
+                  {label}
+                </a>
               </List.Item>
             ))}
           </List>
