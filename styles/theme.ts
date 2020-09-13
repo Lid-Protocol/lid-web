@@ -25,7 +25,7 @@ const theme: Theme = {
   },
 
   sizes: {
-    maxContentWidth: '1200px',
+    maxContentWidth: '1100px',
   },
 
   colors,
