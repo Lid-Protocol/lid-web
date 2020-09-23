@@ -10,6 +10,7 @@ import {
   Roadmap,
   FAQ,
 } from 'components/@pages/Home';
+import Partners from 'components/@pages/Home/Partners';
 
 const Home: FC = () => (
   <>
@@ -23,6 +24,7 @@ const Home: FC = () => (
     <TokenDistributionSection />
     <Roadmap />
     <FAQ />
+    <Partners />
     <Legal />
   </>
 );
