@@ -6,10 +6,7 @@ import discordIcon from './discord.png';
 import telegramIcon from './telegram.png';
 import twitterIcon from './twitter.png';
 import mediumIcon from './medium.png';
-import redditIcon from './reddit.png';
 import githubIcon from './github.png';
-import peepethIcon from './peepeth.png';
-import mastodonIcon from './mastodon.png';
 
 const socialLinks = [
   {
@@ -33,24 +30,9 @@ const socialLinks = [
     iconSrc: mediumIcon,
   },
   {
-    title: 'Reddit',
-    href: 'https://www.reddit.com/r/LIDProtocol/',
-    iconSrc: redditIcon,
-  },
-  {
     title: 'GitHub',
     href: 'https://github.com/carlsbad-sunshine/lid-contracts',
     iconSrc: githubIcon,
-  },
-  {
-    title: 'Peepeth',
-    href: 'https://peepeth.com/LIDProtocol',
-    iconSrc: peepethIcon,
-  },
-  {
-    title: 'Mastodon',
-    href: 'https://mastodon.online/@LIDProtocol',
-    iconSrc: mastodonIcon,
   },
 ];
 
