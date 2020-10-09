@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import styled from "styled-components";
 
 import front_image from './splash.jpeg'
+import mainLogo from '../components/TopBar/main-logo.png'
 
 //Turns into a div for the html
 const BlogPageWrapper = styled.div`
@@ -10,13 +11,7 @@ const BlogPageWrapper = styled.div`
     background-color: white;
     padding-left: 20%;
     padding-right: 20%;
-
-    img {
-        display: block;
-        margin-left: 10px;
-        padding-top: 20px;
-        padding-bottom: 50px;
-    }
+    font-family: Gotham, sans-serif;
 
     p {
         margin-left: 10px;
@@ -51,7 +46,7 @@ const BlueLineBox = styled.div`
 `
 
 //Make into html file that is upload to IPFS
-export default function DeFiArticle () {
+export default function DeFiArticle ( {publish_date} ) {
     
  return (
   <>
@@ -61,10 +56,26 @@ export default function DeFiArticle () {
         <p>Check out our latest blog posts and updates</p>
     </HeaderContainer>
 
+
     <BlogPageWrapper>
+        
+        <div Style="padding-top: 45px;">
+            <img src={mainLogo} 
+                height="30px;"/>
+            <p Style="margin-left: 50px;
+                      margin-top: -35px;">LID Protocol Oct 5, 2020 13 min read </p>
+        </div>
+
+ 
+        
         <h1> 6 Reasons why DEFI is here to stay and not a fad! </h1>
 
-        <img src={front_image} />
+        <img src={front_image} 
+                display= "block"
+                margin-left="10px;"
+                padding-top="20px;"
+                padding-bottom="50px"
+                />
 
         <p>
             Speculation on the permanency of DEFI and the frenzy around it has left those around for
