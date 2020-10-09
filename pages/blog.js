@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import styled from "styled-components";
 
-import DeFiArticle from "./DeFiArticle"
-import front_image from './splash.jpeg'
 import IpfsPageTest from './ipfsPageTest'
+import DeFiArticle from './DeFiArticle'
+
+import front_image from './splash.jpeg'
 
 const URLlink = "http://localhost:8080/blog"
 
@@ -42,10 +43,19 @@ const BlogPostData = [
     } 
 ]
 
-
 const Container = styled.div`
-
     background-color: white;
+`
+
+const HeaderContainer = styled.div`
+
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-bottom: 35px;
+
+    h2 {
+        padding-bottom: 15px;
+    }
 
 `
 
@@ -83,28 +93,32 @@ export default function Blog () {
     }, [])
 
     function updatePageById(id){
-       
         var update = BlogPostData.map(function (data) {
             if (data.id == id) {        
                 setVeiwingPage(true);
                 window.scrollTo(0, 0)
               }    
             });
-        return (update);
     }
 
     if (veiwingPage) {
         return (
-            <DeFiArticle />
+            <>
+                <DeFiArticle />
+            </>
         )
     } else {
         return (
             <>
+            <HeaderContainer>
+                <h2>LID Offical Blog</h2>
 
+                <p>Check out our latest blog posts and updates</p>
+            </HeaderContainer>
             <Container>
-            <IpfsPageTest />
-            
-            <h2 Style="color: grey">Latest Article</h2>
+            <h2 Style="color: grey;
+                       padding-left: 120px;
+                       padding-top: 30px;">Latest Article</h2>
             {BlogPostData.map( data => (
                 <BlogPostBox 
                           width="35%"
@@ -114,7 +128,7 @@ export default function Blog () {
                             window.location = URLlink + "?pageid=" + data.id
                         } >
                         <img src={data.picture} 
-                             height="150px"
+                             height="174px"
                              />
                         
                         <h2> {data.title} </h2>
@@ -127,7 +141,6 @@ export default function Blog () {
             ))} 
             </Container>
             </>
-            )
-        }
-    
+        )
     }
+}

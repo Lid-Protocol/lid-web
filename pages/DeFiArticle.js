@@ -26,11 +26,29 @@ const BlogPageWrapper = styled.div`
 
 `
 
+const HeaderContainer = styled.div`
+
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-bottom: 35px;
+
+    h2 {
+        padding-bottom: 15px;
+    }
+
+`
+
 //Make into html file that is upload to IPFS
 export default function DeFiArticle () {
     
  return (
   <>
+    <HeaderContainer>
+        <h2>LID Offical Blog</h2>
+
+        <p>Check out our latest blog posts and updates</p>
+    </HeaderContainer>
+    
     <BlogPageWrapper>
         <h1> 6 Reasons why DEFI is here to stay and not a fad! </h1>
 
@@ -143,8 +161,13 @@ export default function DeFiArticle () {
             entrepreneur, Alexander Salnikov:
         </p>
 
-    {/* Blue line on left and blod + slanted  */}
-    {/* “It’s not just about putting together protocols and interfaces. What we need in that the DeFi space has more talented and motivated entrepreneurs. Opportunities for businesses to generate profit will attract more talent and encourage further developments which are beneficial for both the protocols and their interfaces.” */}
+        {/* Blue line on left and blod + slanted  */}
+        <p>
+            “It’s not just about putting together protocols and interfaces. What we need in that the 
+            DeFi space has more talented and motivated entrepreneurs. Opportunities for businesses to 
+            generate profit will attract more talent and encourage further developments which are 
+            beneficial for both the protocols and their interfaces.” 
+        </p>
 
         <h2> 6.) Decentralization means agility and flexibility and we are all about that! </h2>
 
