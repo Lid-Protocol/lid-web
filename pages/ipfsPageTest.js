@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import styled from "styled-components";
 var parse = require('html-react-parser');
 
 //Just testing to see if it would be possible to resue header and footer

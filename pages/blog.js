@@ -6,42 +6,16 @@ import DeFiArticle from './DeFiArticle'
 
 import front_image from './splash.jpeg'
 
-const URLlink = "http://localhost:8080/blog"
-
 //Can Store this info on IPFS
 const BlogPostData = [ 
     {
-        id: '1',
+        id: '',
         picture: front_image,
-        title: "6 Reasons why DEFI is here to stay and not a fad!",
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        readtime: "Oct 5, 2020 13 min read",
+        title: "",
+        content: "",
+        readtime: "",
         ipfsHash: ""
-    },
-    {
-        id: '2',
-        picture: front_image,
-        title: "6 Reasons why DEFI is here to stay and not a fad!",
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        readtime: "Oct 5, 2020 13 min read",
-        ipfsHash: ""
-    },
-    {
-        id: '3',
-        picture: front_image,
-        title: "6 Reasons why DEFI is here to stay and not a fad!",
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        readtime: "Oct 5, 2020 13 min read",
-        ipfsHash: ""
-    },
-    {
-        id: '4',
-        picture: front_image,
-        title: "6 Reasons why DEFI is here to stay and not a fad!",
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        readtime: "Oct 5, 2020 13 min read",
-        ipfsHash: ""
-    } 
+    }
 ]
 
 const Container = styled.div`
@@ -64,7 +38,7 @@ const BlogPostBox = styled.div`
 
     border: 2px solid #E4E4E4;
     margin-top: 20px;
-    margin-left: 120px;
+    margin-left: 10%;
     margin-right: 20px;
     color: black;
     background-color: white;
@@ -95,14 +69,41 @@ const BlogPostBox = styled.div`
 export default function Blog () {
 
     const [veiwingPage, setVeiwingPage] = useState(false);
+    const [ListOfPost, setListOfPost] = useState(BlogPostData);
+    const [dataLoaded, setDataloaded] = useState(false);
+
+    async function get_list_of_post() {
+        let response;
+
+        const ipfsHash = "https://ipfs.io/ipfs/QmRf1qvB9rJRyLznWhX93TnsiCRtVXPQQKxdMon2WLb67H";
+        
+        try {
+            response = await fetch(ipfsHash)
+                            .then(res => res.json())
+                            .then(data => setListOfPost(data))
+            setDataloaded(true);
+        } catch (ex) {
+            console.log(ex);
+        }
+    }
 
     useEffect(() => {
-        var Temp = window.location.href.split("=");
-        var id = Temp[1];
 
-        if (id) {
-            updatePageById(parseInt(id, 10))
+        async function load_data() {
+
+            if (!dataLoaded) {
+                await get_list_of_post();
+            }
+
+            var Temp = window.location.href.split("=");
+            var id = Temp[1];
+
+            if (id) {
+                updatePageById(parseInt(id, 10))
+            }
         }
+
+    load_data();
     }, [])
 
     function updatePageById(id){
@@ -134,13 +135,13 @@ export default function Blog () {
             <h2 Style="color: grey;
                        padding-left: 120px;
                        padding-top: 30px;">Latest Article</h2>
-            {BlogPostData.map( data => (
+            {ListOfPost.map( data => (
                 <BlogPostBox 
                           width="35%"
                           height="150px"
                           marginLeft="8%"
                           onClick={() =>
-                            window.location = URLlink + "?pageid=" + data.id
+                            window.location = window.location.href + "?pageid=" + data.id
                         } >
                         <img src={data.picture} 
                              height="205px"
