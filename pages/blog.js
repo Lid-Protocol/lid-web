@@ -2,14 +2,14 @@ import React, {useState, useEffect} from 'react'
 import styled from "styled-components";
 
 import DeFiArticle from "./DeFiArticle"
-
+import front_image from './splash.jpeg'
 
 const URLlink = "http://localhost:8080/blog"
 
 const BlogPostData = [ 
     {
         id: '1',
-        picture: "img",
+        picture: front_image,
         title: "6 Reasons why DEFI is here to stay and not a fad!",
         content: "This is some middle content",
         readtime: "Oct 5, 2020 15 min read"
@@ -37,20 +37,35 @@ const BlogPostData = [
     } 
 ]
 
+const Container = styled.div`
+
+    background-color: white;
+
+`
+
 const BlogPostBox = styled.div`
+
+    border: 1px solid grey;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-left: 120px;
+    margin-right: 20px;
+    color: black;
+    background-color: white;
+    display: inline-block;
+    padding: 15px;
+    width: 80%;
+    
+    img {
+        float: left;
+        padding-right: 25px;
+    }
 
 `
 
 export default function Blog () {
 
     const [veiwingPage, setVeiwingPage] = useState(false);
-
-    // const [pageTitle, setPageTitle] = useState("Title");
-    // const [pageDate, setPageDate] = useState("Date");
-    // const [pageContent, setPageContent] = useState(mainPost.content);
-
-    // const [showLinkCopied, setShowLinkCopied] = useState("hidden");
-
 
     useEffect(() => {
         var Temp = window.location.href.split("=");
@@ -64,18 +79,11 @@ export default function Blog () {
     function updatePageById(id){
        
         var update = BlogPostData.map(function (data) {
-            if (data.id == id) {
-
-                // setPageTitle(data.title);
-                // setPageDate(data.date);
-                // setPageContent(data.content);
-                
+            if (data.id == id) {        
                 setVeiwingPage(true);
                 window.scrollTo(0, 0)
-     
               }    
             });
-
         return (update);
     }
 
@@ -86,8 +94,9 @@ export default function Blog () {
     } else {
         return (
             <>
-          Blog Stuffs
-    
+            <Container>
+            
+            <h2 Style="color: grey">Latest Article</h2>
             {BlogPostData.map( data => (
                 <BlogPostBox 
                           width="35%"
@@ -96,13 +105,19 @@ export default function Blog () {
                           onClick={() =>
                             window.location = URLlink + "?pageid=" + data.id
                         } >
-                        {data.img} <br />
-                        {data.title} <br />
-                        {data.content} <br />
-                        {data.readtime} <br />
+                        <img src={data.picture} 
+                             height="150px"
+                             />
+                        
+                        <h2> {data.title} </h2>
+
+                        <p> {data.content} </p> 
+
+                        {data.readtime} 
 
                 </BlogPostBox>
             ))} 
+            </Container>
             </>
             )
         }
