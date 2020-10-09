@@ -82,6 +82,7 @@ const BlogPostBox = styled.div`
 
     p{
         padding-bottom: 45px;
+        color: #A1A7B0;
     }
     
     img {
@@ -116,6 +117,7 @@ export default function Blog () {
     if (veiwingPage) {
         return (
             //Pass ID or IPFS hash to render in given blog post
+            //Set State to pageID to get correct publish date
             <>
                 <DeFiArticle publis_date="Oct 5, 2020 13 min read" />
             </>
@@ -148,11 +150,11 @@ export default function Blog () {
 
                         <p> {data.content} </p> 
 
-                        {data.readtime} 
+                        <p> {data.readtime} </p> 
 
                 </BlogPostBox>
             ))} 
-            <div Style= "padding-bottom: 20px" />
+            <div Style= "padding-bottom: 100px" />
             </Container>
             <div Style="margin-top: 50px;" />
             </>

@@ -14,14 +14,16 @@ const BlogPageWrapper = styled.div`
     font-family: Gotham, sans-serif;
 
     p {
-        margin-left: 10px;
-        padding-bottom: 30px;
+        padding-top: 30px;
         line-height: 1.8;
      }
 
+     h1{
+         padding-bottom: 20px;
+     }
+
      h2 {
-         padding-bottom: 30px;
-         margin-left: 10px;
+         padding-top: 30px;
          font-size: 18px;
      }
 
@@ -63,7 +65,8 @@ export default function DeFiArticle ( {publish_date} ) {
             <img src={mainLogo} 
                 height="30px;"/>
             <p Style="margin-left: 50px;
-                      margin-top: -35px;">LID Protocol Oct 5, 2020 13 min read </p>
+                      margin-top: -65px;
+                      margin-bottom: 20px;">LID Protocol Oct 5, 2020 13 min read </p>
         </div>
 
  
@@ -74,7 +77,6 @@ export default function DeFiArticle ( {publish_date} ) {
                 display= "block"
                 margin-left="10px;"
                 padding-top="20px;"
-                padding-bottom="50px"
                 />
 
         <p>
@@ -94,9 +96,11 @@ export default function DeFiArticle ( {publish_date} ) {
         </p>
 
         <div Style="border-left: 3px solid #1C9EF7;
-                    margin-left: 10px;
-                    font-style: italic;">
-        <p> 
+                    font-style: italic;
+                    padding-left: 10px;
+                    margin-top: 20px;"
+                    >
+        <p Style="padding-top: 0px;"> 
             “If you think DEFI will have a smaller impact on ETH than ICOs, you aren't paying attention. The ICO boom showcased Ethereum's ability to perform one financial service: early-stage capital formation. DEFI will showcase Ethereum's ability to perform all financial services.”
             Chris Burniske, Placeholder
         </p>
@@ -187,9 +191,11 @@ export default function DeFiArticle ( {publish_date} ) {
         </p>
 
         <div Style="border-left: 3px solid #1C9EF7;
-                    margin-left: 10px;
-                    font-style: italic;">
-        <p>
+                    font-style: italic;
+                    padding-left: 10px;
+                    margin-top: 20px;"
+                    >
+        <p Style="padding-top: 0px;"> 
             “It’s not just about putting together protocols and interfaces. What we need in that the 
             DeFi space has more talented and motivated entrepreneurs. Opportunities for businesses to 
             generate profit will attract more talent and encourage further developments which are 
@@ -214,7 +220,9 @@ export default function DeFiArticle ( {publish_date} ) {
             together! DEFI is here to stay and so is the LID colony and so are its so-called Lidians, so check 
             out more information on our website or join our very active community on Telegram. 
         </p>
+        <div Style= "padding-bottom: 100px" />
     </BlogPageWrapper>
+    <div Style="margin-top: 50px;" />
   </>
     );
 }
