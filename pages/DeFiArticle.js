@@ -27,6 +27,7 @@ const BlogPageWrapper = styled.div`
      h2 {
          padding-bottom: 30px;
          margin-left: 10px;
+         font-size: 18px;
      }
 
 `

@@ -151,7 +151,9 @@ export default function Blog () {
 
                 </BlogPostBox>
             ))} 
+            <div Style= "padding-bottom: 20px" />
             </Container>
+            <div Style="margin-top: 50px;" />
             </>
         )
     }
