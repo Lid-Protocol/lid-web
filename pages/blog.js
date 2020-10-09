@@ -13,31 +13,31 @@ const BlogPostData = [
         id: '1',
         picture: front_image,
         title: "6 Reasons why DEFI is here to stay and not a fad!",
-        content: "This is some middle content",
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         readtime: "Oct 5, 2020 15 min read",
         ipfsHash: ""
     },
     {
         id: '2',
-        picture: "img",
+        picture: front_image,
         title: "6 Reasons why DEFI is here to stay and not a fad!",
-        content: "",
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         readtime: "Oct 5, 2020 15 min read",
         ipfsHash: ""
     },
     {
         id: '3',
-        picture: "img",
+        picture: front_image,
         title: "6 Reasons why DEFI is here to stay and not a fad!",
-        content: "",
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         readtime: "Oct 5, 2020 15 min read",
         ipfsHash: ""
     },
     {
         id: '4',
-        picture: "img",
+        picture: front_image,
         title: "6 Reasons why DEFI is here to stay and not a fad!",
-        content: "",
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         readtime: "Oct 5, 2020 15 min read",
         ipfsHash: ""
     } 
@@ -61,9 +61,8 @@ const HeaderContainer = styled.div`
 
 const BlogPostBox = styled.div`
 
-    border: 1px solid grey;
-    margin-bottom: 30px;
-    margin-top: 30px;
+    border: 2px solid #E4E4E4;
+    margin-top: 20px;
     margin-left: 120px;
     margin-right: 20px;
     color: black;
@@ -71,6 +70,14 @@ const BlogPostBox = styled.div`
     display: inline-block;
     padding: 15px;
     width: 80%;
+
+    h2 {
+        padding-bottom: 18px;
+    }
+
+    p{
+        padding-bottom: 45px;
+    }
     
     img {
         float: left;
@@ -128,7 +135,7 @@ export default function Blog () {
                             window.location = URLlink + "?pageid=" + data.id
                         } >
                         <img src={data.picture} 
-                             height="174px"
+                             height="205px"
                              />
                         
                         <h2> {data.title} </h2>
