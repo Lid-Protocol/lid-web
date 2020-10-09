@@ -12,28 +12,32 @@ const BlogPostData = [
         picture: front_image,
         title: "6 Reasons why DEFI is here to stay and not a fad!",
         content: "This is some middle content",
-        readtime: "Oct 5, 2020 15 min read"
+        readtime: "Oct 5, 2020 15 min read",
+        ipfsHash: ""
     },
     {
         id: '2',
         picture: "img",
         title: "6 Reasons why DEFI is here to stay and not a fad!",
         content: "",
-        readtime: "Oct 5, 2020 15 min read"
+        readtime: "Oct 5, 2020 15 min read",
+        ipfsHash: ""
     },
     {
         id: '3',
         picture: "img",
         title: "6 Reasons why DEFI is here to stay and not a fad!",
         content: "",
-        readtime: "Oct 5, 2020 15 min read"
+        readtime: "Oct 5, 2020 15 min read",
+        ipfsHash: ""
     },
     {
         id: '4',
         picture: "img",
         title: "6 Reasons why DEFI is here to stay and not a fad!",
         content: "",
-        readtime: "Oct 5, 2020 15 min read"
+        readtime: "Oct 5, 2020 15 min read",
+        ipfsHash: ""
     } 
 ]
 
