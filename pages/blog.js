@@ -55,7 +55,6 @@ const BlogPostBox = styled.div`
     }
 
     p{
-        padding-bottom: 45px;
         color: #A1A7B0;
     }
     
@@ -101,7 +100,9 @@ export default function Blog () {
 
         async function load_data() {
           
-            await get_list_of_post();
+            if (!dataLoaded) {
+                await get_list_of_post();
+            }
         
             var Temp = window.location.href.split("=");
             var id = Temp[1];
@@ -114,7 +115,7 @@ export default function Blog () {
     load_data();
     }, [])
 
-    if (veiwingPage) {
+    if (!veiwingPage) {
         return (
             //Pass ID or IPFS hash to render in given blog post
             //Set State to pageID to get correct publish date
@@ -127,7 +128,6 @@ export default function Blog () {
             <>
             <HeaderContainer>
                 <h2>LID Offical Blog</h2>
-
                 <p>Check out our latest blog posts and updates</p>
             </HeaderContainer>
             <Container>
@@ -148,7 +148,7 @@ export default function Blog () {
                         
                         <h2> {data.title} </h2>
 
-                        <p> {data.content} </p> 
+                        <p Style="padding-bottom: 45px;"> {data.content} </p> 
 
                         <p> {data.readtime} </p> 
 

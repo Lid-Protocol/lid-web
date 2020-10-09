@@ -9,8 +9,8 @@ const BlogPageWrapper = styled.div`
 
     color: black;
     background-color: white;
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: ${props => props.padding};
+    padding-right: ${props => props.padding};
     font-family: Gotham, sans-serif;
 
     p {
@@ -32,7 +32,7 @@ const BlogPageWrapper = styled.div`
 const HeaderContainer = styled.div`
 
     padding-top: 50px;
-    padding-left: 100px;
+    padding-left: 7%;
     padding-bottom: 35px;
 
     h2 {
@@ -47,8 +47,22 @@ const BlueLineBox = styled.div`
 
 `
 
+const ImageWrapper = styled.div`
+
+`
+
 //Make into html file that is upload to IPFS
 export default function DeFiArticle ( {publish_date} ) {
+
+    const [padding, setPadding] = useState("20%")
+
+    useEffect(() => {
+        if (window.innerWidth > 999) {
+            setPadding("20%")
+        } else {
+            setPadding("7%");
+        }
+    })
     
  return (
   <>
@@ -59,24 +73,30 @@ export default function DeFiArticle ( {publish_date} ) {
     </HeaderContainer>
 
 
-    <BlogPageWrapper>
+    <BlogPageWrapper padding={padding}>
         
         <div Style="padding-top: 45px;">
             <img src={mainLogo} 
-                height="30px;"/>
-            <p Style="margin-left: 50px;
-                      margin-top: -65px;
-                      margin-bottom: 20px;">LID Protocol Oct 5, 2020 13 min read </p>
+                height="35px;"/>
+            <p Style="margin-left: 55px;
+                      margin-top: -78px;
+                      margin-bottom: 20px;
+                      ">LID Protocol
+                      <p Style="margin-top: -30px;
+                                color: #9e9e9e;
+                                font-size: 15px;
+                                "> Oct 5, 2020 13 min read </p>
+            </p>
+            
         </div>
 
- 
-        
-        <h1> 6 Reasons why DEFI is here to stay and not a fad! </h1>
+        <h1 Style="color: #474747"> 6 Reasons why DEFI is here to stay and not a fad! </h1>
 
         <img src={front_image} 
                 display= "block"
                 margin-left="10px;"
                 padding-top="20px;"
+                width="100%"
                 />
 
         <p>
