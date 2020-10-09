@@ -6,6 +6,7 @@ export const menuItems = Object.entries({
   Roadmap: '/#roadmap',
   FAQ: '/#faq',
   Socials: '/#footer',
+  Blog: "/#blog",
   Application: '/application',
 });
 
