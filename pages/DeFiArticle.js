@@ -50,7 +50,7 @@ export default function DeFiArticle () {
             and mitigate the risks associated with inhabiting the new world of DEFI. 
         </p>
 
-        {/* Bold and slangted */}
+        {/* Blue line + Bold and slangted */}
         <p> 
             “If you think DEFI will have a smaller impact on ETH than ICOs, you aren't paying attention. The ICO boom showcased Ethereum's ability to perform one financial service: early-stage capital formation. DEFI will showcase Ethereum's ability to perform all financial services.”
             Chris Burniske, Placeholder
