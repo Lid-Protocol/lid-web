@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import DeFiArticle from "./DeFiArticle"
 import front_image from './splash.jpeg'
+import IpfsPageTest from './ipfsPageTest'
 
 const URLlink = "http://localhost:8080/blog"
 
@@ -40,6 +41,7 @@ const BlogPostData = [
         ipfsHash: ""
     } 
 ]
+
 
 const Container = styled.div`
 
@@ -98,7 +100,9 @@ export default function Blog () {
     } else {
         return (
             <>
+
             <Container>
+            <IpfsPageTest />
             
             <h2 Style="color: grey">Latest Article</h2>
             {BlogPostData.map( data => (
