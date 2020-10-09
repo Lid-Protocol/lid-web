@@ -8,6 +8,7 @@ import ContentWrapper from 'components/ContentWrapper';
 import AskboBarImage from './AskboBar.png';
 import DEXToolsImage from './DEXTools.png';
 import XFIImage from './XFI.png';
+import QuillAuditImage from './QuillAudits.png';
 
 const Partners: React.FC = () => (
   <Box
@@ -32,6 +33,9 @@ const Partners: React.FC = () => (
           </Box>
           <Box maxWidth={['300px', '300px', '300px', '300px']} mb="2rem">
             <Image width="70%" height="auto" src={XFIImage} />
+          </Box>
+          <Box maxWidth={['300px', '300px', '300px', '300px']} mb="2rem">
+            <Image width="70%" height="auto" src={QuillAuditImage} />
           </Box>
         </FlexBox>
       </FlexBox>
