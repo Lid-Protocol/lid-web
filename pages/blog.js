@@ -6,7 +6,7 @@ import DeFiArticle from './DeFiArticle'
 
 import front_image from './splash.jpeg'
 
-//Can Store this info on IPFS
+//Stored this info on IPFS
 const BlogPostData = [ 
     {
         id: '',
@@ -87,14 +87,22 @@ export default function Blog () {
         }
     }
 
+    function updatePageById(id){
+        {ListOfPost.map(data => { 
+            console.log(data);
+            if (data.id == id) {        
+                setVeiwingPage(true);
+                window.scrollTo(0, 0)
+              }    
+        })};
+    }
+
     useEffect(() => {
 
         async function load_data() {
-
-            if (!dataLoaded) {
-                await get_list_of_post();
-            }
-
+          
+            await get_list_of_post();
+        
             var Temp = window.location.href.split("=");
             var id = Temp[1];
 
@@ -105,15 +113,6 @@ export default function Blog () {
 
     load_data();
     }, [])
-
-    function updatePageById(id){
-        var update = BlogPostData.map(function (data) {
-            if (data.id == id) {        
-                setVeiwingPage(true);
-                window.scrollTo(0, 0)
-              }    
-            });
-    }
 
     if (veiwingPage) {
         return (
@@ -143,7 +142,7 @@ export default function Blog () {
                           onClick={() =>
                             window.location = window.location.href + "?pageid=" + data.id
                         } >
-                        <img src={data.picture} 
+                        <img src="https://ipfs.io/ipfs/QmW7AzrgnpAEB2mW8i4Piozu6R38kdS6DAPkifarkTWLd2"
                              height="205px"
                              />
                         
