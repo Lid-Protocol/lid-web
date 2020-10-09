@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import front_image from './splash.jpeg'
 
+//Turns into a div for the html
 const BlogPageWrapper = styled.div`
 
     color: black;
@@ -25,6 +26,7 @@ const BlogPageWrapper = styled.div`
 
 `
 
+//Make into html file that is upload to IPFS
 export default function DeFiArticle () {
     
  return (
