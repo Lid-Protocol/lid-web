@@ -8,20 +8,25 @@ const BlogPageWrapper = styled.div`
 
     color: black;
     background-color: white;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 20%;
+    padding-right: 20%;
 
     img {
-        left: 350px;
+        display: block;
+        margin-left: 10px;
+        padding-top: 20px;
+        padding-bottom: 50px;
     }
 
     p {
         margin-left: 10px;
         padding-bottom: 30px;
+        line-height: 1.8;
      }
 
      h2 {
          padding-bottom: 30px;
+         margin-left: 10px;
      }
 
 `
@@ -38,6 +43,12 @@ const HeaderContainer = styled.div`
 
 `
 
+const BlueLineBox = styled.div`
+
+    border-left: 1px solid #0c65EB;
+
+`
+
 //Make into html file that is upload to IPFS
 export default function DeFiArticle () {
     
@@ -48,7 +59,7 @@ export default function DeFiArticle () {
 
         <p>Check out our latest blog posts and updates</p>
     </HeaderContainer>
-    
+
     <BlogPageWrapper>
         <h1> 6 Reasons why DEFI is here to stay and not a fad! </h1>
 
@@ -70,12 +81,14 @@ export default function DeFiArticle () {
             and mitigate the risks associated with inhabiting the new world of DEFI. 
         </p>
 
-        {/* Blue line + Bold and slangted */}
+        <div Style="border-left: 3px solid #1C9EF7;
+                    margin-left: 10px;
+                    font-style: italic;">
         <p> 
             “If you think DEFI will have a smaller impact on ETH than ICOs, you aren't paying attention. The ICO boom showcased Ethereum's ability to perform one financial service: early-stage capital formation. DEFI will showcase Ethereum's ability to perform all financial services.”
             Chris Burniske, Placeholder
         </p>
-
+        </div>
 
         <p> So, these are our reasons why we think DEFI is here to stay; </p>
 
@@ -161,13 +174,16 @@ export default function DeFiArticle () {
             entrepreneur, Alexander Salnikov:
         </p>
 
-        {/* Blue line on left and blod + slanted  */}
+        <div Style="border-left: 3px solid #1C9EF7;
+                    margin-left: 10px;
+                    font-style: italic;">
         <p>
             “It’s not just about putting together protocols and interfaces. What we need in that the 
             DeFi space has more talented and motivated entrepreneurs. Opportunities for businesses to 
             generate profit will attract more talent and encourage further developments which are 
             beneficial for both the protocols and their interfaces.” 
         </p>
+        </div>
 
         <h2> 6.) Decentralization means agility and flexibility and we are all about that! </h2>
 

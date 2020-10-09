@@ -8,6 +8,7 @@ import front_image from './splash.jpeg'
 
 const URLlink = "http://localhost:8080/blog"
 
+//Can Store this info on IPFS
 const BlogPostData = [ 
     {
         id: '1',
@@ -56,7 +57,6 @@ const HeaderContainer = styled.div`
     h2 {
         padding-bottom: 15px;
     }
-
 `
 
 const BlogPostBox = styled.div`
@@ -70,6 +70,10 @@ const BlogPostBox = styled.div`
     display: inline-block;
     padding: 15px;
     width: 80%;
+
+    &:hover{
+        cursor: pointer;
+    }
 
     h2 {
         padding-bottom: 18px;
@@ -110,6 +114,7 @@ export default function Blog () {
 
     if (veiwingPage) {
         return (
+            //Pass ID or IPFS hash to render in given blog post
             <>
                 <DeFiArticle />
             </>
