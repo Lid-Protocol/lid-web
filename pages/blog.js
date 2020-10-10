@@ -87,6 +87,7 @@ export default function Blog () {
     }
 
     function updatePageById(id){
+
         {ListOfPost.map(data => { 
             console.log(data);
             if (data.id == id) {        
@@ -94,6 +95,7 @@ export default function Blog () {
                 window.scrollTo(0, 0)
               }    
         })};
+
     }
 
     useEffect(() => {
@@ -115,7 +117,7 @@ export default function Blog () {
     load_data();
     }, [])
 
-    if (!veiwingPage) {
+    if (veiwingPage) {
         return (
             //Pass ID or IPFS hash to render in given blog post
             //Set State to pageID to get correct publish date
