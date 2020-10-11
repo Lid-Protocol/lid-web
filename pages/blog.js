@@ -6,6 +6,8 @@ import DeFiArticle from './DeFiArticle'
 
 import front_image from './splash.jpeg'
 
+import {BlogData} from './blogPostBackUp'
+
 //Stored this info on IPFS
 const BlogPostData = [ 
     {
@@ -88,7 +90,7 @@ export default function Blog () {
 
     function updatePageById(id){
 
-        {ListOfPost.map(data => { 
+        {BlogData.map(data => { 
             console.log(data);
             if (data.id == id) {        
                 setVeiwingPage(true);
@@ -136,7 +138,7 @@ export default function Blog () {
             <h2 Style="color: grey;
                        padding-left: 120px;
                        padding-top: 30px;">Latest Article</h2>
-            {ListOfPost.map( data => (
+            {BlogData.map( data => (
                 <BlogPostBox 
                           width="35%"
                           height="150px"
