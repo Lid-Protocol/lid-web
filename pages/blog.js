@@ -4,8 +4,6 @@ import styled from "styled-components";
 import IpfsPageTest from './ipfsPageTest'
 import DeFiArticle from './DeFiArticle'
 
-import front_image from './splash.jpeg'
-
 // Stored this info on IPFS 
 // https://ipfs.io/ipfs/QmRf1qvB9rJRyLznWhX93TnsiCRtVXPQQKxdMon2WLb67H
 const BlogData = [
