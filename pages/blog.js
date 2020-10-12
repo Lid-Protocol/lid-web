@@ -5,11 +5,11 @@ import IpfsPageTest from './ipfsPageTest'
 import DeFiArticle from './DeFiArticle'
 
 // Stored this info on IPFS 
-// https://ipfs.io/ipfs/QmRf1qvB9rJRyLznWhX93TnsiCRtVXPQQKxdMon2WLb67H
+// https://ipfs.io/ipfs/QmRCPhUfc6tWRpkJrPk7kE2jSUAVLxTUjNHnEti2NbRpba
 const BlogData = [
     {
         id : '1',
-        picture : "front_image",
+        picture : "https://ipfs.io/ipfs/QmW7AzrgnpAEB2mW8i4Piozu6R38kdS6DAPkifarkTWLd2",
         title : "6 Reasons why DEFI is here to stay and not a fad!",
         content : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         readtime : "Oct 5, 2020 13 min read",
@@ -17,7 +17,7 @@ const BlogData = [
     },
     {
         id : '2',
-        picture : "front_image",
+        picture : "https://ipfs.io/ipfs/QmW7AzrgnpAEB2mW8i4Piozu6R38kdS6DAPkifarkTWLd2",
         title : "6 Reasons why DEFI is here to stay and not a fad!",
         content : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         readtime : "Oct 5, 2020 13 min read",
@@ -25,7 +25,7 @@ const BlogData = [
     },
     {
         id : '3',
-        picture : "front_image",
+        picture : "https://ipfs.io/ipfs/QmW7AzrgnpAEB2mW8i4Piozu6R38kdS6DAPkifarkTWLd2",
         title : "6 Reasons why DEFI is here to stay and not a fad!",
         content : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         readtime : "Oct 5, 2020 13 min read",
@@ -33,7 +33,7 @@ const BlogData = [
     },
     {
         id : '4',
-        picture : "front_image",
+        picture : "https://ipfs.io/ipfs/QmW7AzrgnpAEB2mW8i4Piozu6R38kdS6DAPkifarkTWLd2",
         title : "6 Reasons why DEFI is here to stay and not a fad!",
         content : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         readtime : "Oct 5, 2020 13 min read",
@@ -41,7 +41,7 @@ const BlogData = [
     },
     {
         id : '5',
-        picture : "front_image",
+        picture : "https://ipfs.io/ipfs/QmW7AzrgnpAEB2mW8i4Piozu6R38kdS6DAPkifarkTWLd2",
         title : "6 Reasons why DEFI is here to stay and not a fad!",
         content : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         readtime : "Oct 5, 2020 13 min read",
@@ -177,7 +177,7 @@ export default function Blog () {
                           onClick={() =>
                             window.location = window.location.href + "?pageid=" + data.id
                         } >
-                        <img src="https://ipfs.io/ipfs/QmW7AzrgnpAEB2mW8i4Piozu6R38kdS6DAPkifarkTWLd2"
+                        <img src={data.picture}
                              height="205px"
                              />
                         
