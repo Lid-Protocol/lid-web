@@ -101,7 +101,7 @@ export default function Blog () {
     const [veiwingPage, setVeiwingPage] = useState(false);
     const [ListOfPost, setListOfPost] = useState(BlogData);
     const [dataLoaded, setDataloaded] = useState(false);
-
+    
     //Weird loading bug with state when switching to articles (using static data for now) 
     //However reads in data successfully
     async function get_list_of_post() {
@@ -178,7 +178,8 @@ export default function Blog () {
                             window.location = window.location.href + "?pageid=" + data.id
                         } >
                         <img src={data.picture}
-                             height="205px"
+                             height="204px"
+                             width="290px"
                              />
                         
                         <h2> {data.title} </h2>
