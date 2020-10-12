@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-var parse = require('html-react-parser');
 
 //Just testing to see if it would be possible to resue header and footer
 //It successfully pulls the data but then is render weird.
