@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 var parse = require('html-react-parser');
 
 //Just testing to see if it would be possible to resue header and footer
+//It successfully pulls the data but then is render weird.
 const ipfsHash = "https://ipfs.io/ipfs/QmRR2QMeLmuboA5N81WE4cwXZGtix7drpVqJ1bEZdV7Pmq"
 
 export default function IPFSpage () {

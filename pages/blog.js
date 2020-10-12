@@ -6,7 +6,8 @@ import DeFiArticle from './DeFiArticle'
 
 import front_image from './splash.jpeg'
 
-//Stored this info on IPFS
+// Stored this info on IPFS 
+// https://ipfs.io/ipfs/QmRf1qvB9rJRyLznWhX93TnsiCRtVXPQQKxdMon2WLb67H
 const BlogData = [
     {
         id : '1',
@@ -103,6 +104,8 @@ export default function Blog () {
     const [ListOfPost, setListOfPost] = useState(BlogData);
     const [dataLoaded, setDataloaded] = useState(false);
 
+    //Weird loading bug with state when switching to articles (using static data for now) 
+    //However reads in data successfully
     async function get_list_of_post() {
         let response;
 
@@ -134,9 +137,10 @@ export default function Blog () {
 
         async function load_data() {
           
-            if (!dataLoaded) {
-                await get_list_of_post();
-            }
+            // Update to check IndexDB instead
+            // if (!dataLoaded) {
+            //     await get_list_of_post();
+            // }
         
             var Temp = window.location.href.split("=");
             var id = Temp[1];
@@ -146,13 +150,12 @@ export default function Blog () {
             }
         }
 
-    load_data();
+      load_data();
     }, [])
 
     if (veiwingPage) {
         return (
             //Pass ID or IPFS hash to render in given blog post
-            //Set State to pageID to get correct publish date
             <>
                 <DeFiArticle publis_date="Oct 5, 2020 13 min read" />
             </>
