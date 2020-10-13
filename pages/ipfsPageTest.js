@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from 'react'
 
-//Just testing to see if it would be possible to resue header and footer
-//It successfully pulls the data but then is render weird.
-const ipfsHash = "https://ipfs.io/ipfs/QmRR2QMeLmuboA5N81WE4cwXZGtix7drpVqJ1bEZdV7Pmq"
+export default function IPFSpage ({ipfsHash}) {
 
-export default function IPFSpage () {
+    const ipfsPageHash = `https://ipfs.io/ipfs/${ipfsHash}`
 
     const [htmlContent, setHtmlContent] = useState("");
 
@@ -12,7 +10,7 @@ export default function IPFSpage () {
         let response;
         
         try {
-            response = await fetch(ipfsHash)
+            response = await fetch(ipfsPageHash)
                             .then((resp)=>{ return resp.text() })
                             .then((text)=>{ setHtmlContent(text) })
         } catch (ex) {

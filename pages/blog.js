@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import styled from "styled-components";
 
-import IpfsPageTest from './ipfsPageTest'
 import DeFiArticle from './DeFiArticle'
 
 // Stored this info on IPFS 
@@ -13,7 +12,7 @@ const BlogData = [
         title : "6 Reasons why DEFI is here to stay and not a fad!",
         content : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         readtime : "Oct 5, 2020 13 min read",
-        ipfsHash : ""
+        ipfsHash : "QmauwkjBtyCNgSr7QVkJWmb6rP6GzvDeedZhLzDSnCjVAL"
     },
     {
         id : '2',
@@ -155,7 +154,8 @@ export default function Blog () {
         return (
             //Pass ID or IPFS hash to render in given blog post
             <>
-                <DeFiArticle publis_date="Oct 5, 2020 13 min read" />
+                <DeFiArticle Read_Time={"Oct 5, 2020 13 min read"}
+                             IPFShash={"QmauwkjBtyCNgSr7QVkJWmb6rP6GzvDeedZhLzDSnCjVAL"}/>
             </>
         )
     } else {
