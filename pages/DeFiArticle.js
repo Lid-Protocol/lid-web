@@ -72,14 +72,13 @@ export default function DeFiArticle ( {Read_Time, IPFShash} ) {
                 height="35px;"/>
             <p Style="margin-left: 55px;
                       margin-top: -78px;
-                      margin-bottom: 20px;
+                      margin-bottom: 20px
                       ">LID Protocol
                       <p Style="margin-top: -30px;
                                 color: #9e9e9e;
                                 font-size: 15px;
                                 "> {Read_Time}</p>
-            </p>
-            
+            </p>     
         </div>
        <IPFSpage ipfsHash={IPFShash} />
     </BlogPageWrapper>

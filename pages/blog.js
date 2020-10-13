@@ -12,7 +12,7 @@ const BlogData = [
         title : "6 Reasons why DEFI is here to stay and not a fad!",
         content : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         readtime : "Oct 5, 2020 13 min read",
-        ipfsHash : "QmauwkjBtyCNgSr7QVkJWmb6rP6GzvDeedZhLzDSnCjVAL"
+        ipfsHash : "QmUPXLrbCyMryPhnKfanj5pNhu9PkxQPMBK21tNCXzH218"
     },
     {
         id : '2',
@@ -56,7 +56,7 @@ const Container = styled.div`
 const HeaderContainer = styled.div`
 
     padding-top: 50px;
-    padding-left: 100px;
+    padding-left: 50px;
     padding-bottom: 35px;
 
     h2 {
@@ -155,7 +155,7 @@ export default function Blog () {
             //Pass ID or IPFS hash to render in given blog post
             <>
                 <DeFiArticle Read_Time={"Oct 5, 2020 13 min read"}
-                             IPFShash={"QmauwkjBtyCNgSr7QVkJWmb6rP6GzvDeedZhLzDSnCjVAL"}/>
+                             IPFShash={"QmUPXLrbCyMryPhnKfanj5pNhu9PkxQPMBK21tNCXzH218"}/>
             </>
         )
     } else {
@@ -167,7 +167,7 @@ export default function Blog () {
             </HeaderContainer>
             <Container>
             <h2 Style="color: grey;
-                       padding-left: 120px;
+                       padding-left: 70px;
                        padding-top: 30px;">Latest Article</h2>
             {BlogData.map( data => (
                 <BlogPostBox 
