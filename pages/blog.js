@@ -56,7 +56,7 @@ const Container = styled.div`
 const HeaderContainer = styled.div`
 
     padding-top: 50px;
-    padding-left: 50px;
+    padding-left: 10%;
     padding-bottom: 35px;
 
     h2 {
@@ -167,7 +167,7 @@ export default function Blog () {
             </HeaderContainer>
             <Container>
             <h2 Style="color: grey;
-                       padding-left: 70px;
+                       padding-left: 10%;
                        padding-top: 30px;">Latest Article</h2>
             {BlogData.map( data => (
                 <BlogPostBox 
