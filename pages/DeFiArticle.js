@@ -32,7 +32,7 @@ const BlogPageWrapper = styled.div`
 const HeaderContainer = styled.div`
 
     padding-top: 50px;
-    padding-left: 7%;
+    padding-left: ${props => props.padding};
     padding-bottom: 35px;
 
     h2 {
@@ -48,19 +48,22 @@ const BlueLineBox = styled.div`
 //Pass the article IDs IPFS hash into the IFPS page generator.
 export default function DeFiArticle ( {Read_Time, IPFShash} ) {
 
-    const [padding, setPadding] = useState("20%")
+    const [padding, setPadding] = useState("20%");
+    const [subHeaderPadding, setSubHeaderPadding] = useState("20%")
 
     useEffect(() => {
         if (window.innerWidth > 999) {
-            setPadding("20%")
+            setPadding("20%");
+            setSubHeaderPadding("20%");
         } else {
             setPadding("7%");
+            setSubHeaderPadding("7%");
         }
     })
     
  return (
   <>
-    <HeaderContainer>
+    <HeaderContainer padding={subHeaderPadding}>
         <h2>LID Offical Blog</h2>
 
         <p>Check out our latest blog posts and updates</p>
