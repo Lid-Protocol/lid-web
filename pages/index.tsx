@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC ,useState ,useEffect } from 'react';
 import Head from 'next/head';
 
 import {
@@ -12,21 +12,23 @@ import {
 } from 'components/@pages/Home';
 import Partners from 'components/@pages/Home/Partners';
 
-const Home: FC = () => (
-  <>
-    <Head>
-      <title>Liquidity Dividends Protocol</title>
-    </Head>
+export default function Home (): any {
+    return (
+      <>
+        <Head>
+          <title>Liquidity Dividends Protocol</title>
+        </Head>
 
-    <Header />
-    <About />
-    <CertifiedPresaleInfo />
-    <TokenDistributionSection />
-    <Roadmap />
-    <FAQ />
-    <Partners />
-    <Legal />
-  </>
-);
+        <Header />
+        <About />
+        <CertifiedPresaleInfo />
+        <TokenDistributionSection />
+        <Roadmap />
+        <FAQ />
+        <Partners />
+        <Legal />
+      </>
+    )
+}
 
-export default Home;
+
