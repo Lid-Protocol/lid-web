@@ -26,21 +26,31 @@ const Partners: React.FC = () => (
           alignItems="center"
           mt={[0, 5.5]}
         >
+          <a href="https://askobar-network.com/">
           <Box maxWidth={['300px', '300px', '300px', '300px']} mb="2rem">
             <Image width="70%" height="auto" src={AskboBarImage} />
           </Box>
+          </a>
+          <a href="https://www.dextools.io/">
           <Box maxWidth={['300px', '300px', '300px', '300px']} mb="2rem">
             <Image width="70%" height="auto" src={DEXToolsImage} />
           </Box>
+          </a>
+          <a href="https://xfinance.io/">
           <Box maxWidth={['300px', '300px', '300px', '300px']} mb="2rem">
             <Image width="70%" height="auto" src={XFIImage} />
           </Box>
+          </a>
+          <a href="https://audits.quillhash.com/">
           <Box maxWidth={['300px', '300px', '300px', '300px']} mb="2rem">
             <Image width="70%" height="auto" src={QuillAuditImage} />
           </Box>
+          </a>
+          <a href="https://www.trusttoken.com/">
           <Box maxWidth={['300px', '300px', '300px', '300px']} mb="2rem">
             <Image width="70%" height="auto" src={TUSDImage} />
           </Box>
+          </a>
         </FlexBox>
       </FlexBox>
     </ContentWrapper>
