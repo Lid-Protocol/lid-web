@@ -16,36 +16,12 @@ const BlogData = [
     },
     {
         id : '2',
-        picture : "https://ipfs.io/ipfs/QmW7AzrgnpAEB2mW8i4Piozu6R38kdS6DAPkifarkTWLd2",
-        title : "6 Reasons why DEFI is here to stay and not a fad!",
+        picture : "https://ipfs.io/ipfs/QmPCX9TyMb4GQLAsdZ5uKRmVTbdqiHA2h5pqaZbEkMxMhh",
+        title : "Integrity and Safety a Way Back for Sustainable Defi",
         content : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         readtime : "Oct 5, 2020 13 min read",
-        ipfsHash : ""
+        ipfsHash : "QmPfCC7mNNUqxrm56jkFgXSqgULLZPX2X7VdFDuwLWM8rh"
     },
-    {
-        id : '3',
-        picture : "https://ipfs.io/ipfs/QmW7AzrgnpAEB2mW8i4Piozu6R38kdS6DAPkifarkTWLd2",
-        title : "6 Reasons why DEFI is here to stay and not a fad!",
-        content : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        readtime : "Oct 5, 2020 13 min read",
-        ipfsHash : ""
-    },
-    {
-        id : '4',
-        picture : "https://ipfs.io/ipfs/QmW7AzrgnpAEB2mW8i4Piozu6R38kdS6DAPkifarkTWLd2",
-        title : "6 Reasons why DEFI is here to stay and not a fad!",
-        content : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        readtime : "Oct 5, 2020 13 min read",
-        ipfsHash : ""
-    },
-    {
-        id : '5',
-        picture : "https://ipfs.io/ipfs/QmW7AzrgnpAEB2mW8i4Piozu6R38kdS6DAPkifarkTWLd2",
-        title : "6 Reasons why DEFI is here to stay and not a fad!",
-        content : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        readtime : "Oct 5, 2020 13 min read",
-        ipfsHash : ""
-    }
 ]
 
 const Container = styled.div`
@@ -98,6 +74,8 @@ const BlogPostBox = styled.div`
 export default function Blog () {
 
     const [veiwingPage, setVeiwingPage] = useState(false);
+    const [ipfsHash, setIpfsHash] = useState("");
+
     const [ListOfPost, setListOfPost] = useState(BlogData);
     const [dataLoaded, setDataloaded] = useState(false);
     
@@ -124,7 +102,8 @@ export default function Blog () {
             console.log(data);
             if (data.id == id) {        
                 setVeiwingPage(true);
-                window.scrollTo(0, 0)
+                setIpfsHash(data.ipfsHash);
+                window.scrollTo(0, 0);
               }    
         })};
 
@@ -155,7 +134,7 @@ export default function Blog () {
             //Pass ID or IPFS hash to render in given blog post
             <>
                 <DeFiArticle Read_Time={"Oct 5, 2020 13 min read"}
-                             IPFShash={"QmUPXLrbCyMryPhnKfanj5pNhu9PkxQPMBK21tNCXzH218"}/>
+                             IPFShash={ipfsHash}/>
             </>
         )
     } else {
