@@ -1,7 +1,10 @@
 import { NextComponentType } from 'next';
 import { AppContext, AppInitialProps, AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
+import { useEffect, useState } from 'react';
+import { GA_TRACKING_ID } from '../lib/gtag';
 import Head from 'next/head';
+import Router from 'next/router';
 
 import AppWrapper from 'components/AppWrapper';
 import TopBar from 'components/TopBar';
@@ -14,7 +17,15 @@ import 'styles/fonts.css';
 const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   Component,
   pageProps,
-}) => (
+}) => {
+  
+  const [urlPath, setUrlPath] = useState("/");
+
+  useEffect(() => {
+    setUrlPath(Router.asPath)
+  })
+
+  return (
   <ThemeProvider theme={theme}>
     <AppWrapper>
       <Head>
@@ -36,12 +47,29 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
         <meta name="twitter:image" content="/static/opengraph.png" />
         <link rel="icon" type="image/png" href="/static/logo.png" />
         <link rel="apple-touch-icon" href="/static/logo.png" />
+        <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_TRACKING_ID}', {
+                page_path: '${urlPath}',
+              });
+            `,
+            }}
+          />
       </Head>
       <TopBar />
       <Component {...pageProps} />
       <Footer />
     </AppWrapper>
   </ThemeProvider>
-);
+  )
+};
 
 export default App;
