@@ -19,7 +19,7 @@ const BlogData = [
         picture : "https://ipfs.io/ipfs/QmPCX9TyMb4GQLAsdZ5uKRmVTbdqiHA2h5pqaZbEkMxMhh",
         title : "Integrity and Safety a Way Back for Sustainable Defi",
         content : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        readtime : "Oct 5, 2020 13 min read",
+        readtime : "Oct 15, 2020 10 min read",
         ipfsHash : "QmPfCC7mNNUqxrm56jkFgXSqgULLZPX2X7VdFDuwLWM8rh"
     },
 ]
@@ -75,6 +75,7 @@ export default function Blog () {
 
     const [veiwingPage, setVeiwingPage] = useState(false);
     const [ipfsHash, setIpfsHash] = useState("");
+    const [readTime, setReadTime] = useState("");
 
     const [ListOfPost, setListOfPost] = useState(BlogData);
     const [dataLoaded, setDataloaded] = useState(false);
@@ -103,6 +104,7 @@ export default function Blog () {
             if (data.id == id) {        
                 setVeiwingPage(true);
                 setIpfsHash(data.ipfsHash);
+                setReadTime(data.readtime)
                 window.scrollTo(0, 0);
               }    
         })};
@@ -133,7 +135,7 @@ export default function Blog () {
         return (
             //Pass ID or IPFS hash to render in given blog post
             <>
-                <DeFiArticle Read_Time={"Oct 5, 2020 13 min read"}
+                <DeFiArticle Read_Time={readTime}
                              IPFShash={ipfsHash}/>
             </>
         )
