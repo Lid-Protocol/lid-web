@@ -8,20 +8,20 @@ import DeFiArticle from './DeFiArticle'
 const BlogData = [
     {
         id : '1',
-        picture : "https://ipfs.io/ipfs/QmW7AzrgnpAEB2mW8i4Piozu6R38kdS6DAPkifarkTWLd2",
-        title : "6 Reasons why DEFI is here to stay and not a fad!",
-        content : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        readtime : "Oct 5, 2020 13 min read",
-        ipfsHash : "QmUPXLrbCyMryPhnKfanj5pNhu9PkxQPMBK21tNCXzH218"
-    },
-    {
-        id : '2',
         picture : "https://ipfs.io/ipfs/QmPCX9TyMb4GQLAsdZ5uKRmVTbdqiHA2h5pqaZbEkMxMhh",
         title : "Integrity and Safety a Way Back for Sustainable Defi",
         content : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         readtime : "Oct 15, 2020 10 min read",
         ipfsHash : "QmZ5iMNHrU91N7pfPwLcqw5FJKXnhhtjLeqrfzoK4e3n5V"
     },
+    {
+        id : '2',
+        picture : "https://ipfs.io/ipfs/QmW7AzrgnpAEB2mW8i4Piozu6R38kdS6DAPkifarkTWLd2",
+        title : "6 Reasons why DEFI is here to stay and not a fad!",
+        content : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        readtime : "Oct 5, 2020 13 min read",
+        ipfsHash : "QmUPXLrbCyMryPhnKfanj5pNhu9PkxQPMBK21tNCXzH218"
+    }
 ]
 
 const Container = styled.div`
