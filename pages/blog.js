@@ -12,7 +12,7 @@ const BlogData = [
         title : "LID Protocol | Multi – Channel Network – Community Voting & Project AMA",
         content : "Multi-Channel Network is focused on bringing about world-class circular ecosystem aimed at providing access to the right partnership, plan flexibility and project start-up holistic sustainability.",
         readtime : "Oct 16, 2020 11 min read",
-        ipfsHash : "QmThefdMw9ZECMYWDeYQZ5KjJGWfioYPZydRKMtNKuArUf"
+        ipfsHash : "QmZN8sbjcPoisvZRaoWd7nMsSGQDY2MLhkiVwPcBaujhzv"
     },
     {
         id : '1',
