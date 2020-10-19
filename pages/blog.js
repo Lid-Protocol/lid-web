@@ -10,15 +10,15 @@ const BlogData = [
         id : '0',
         picture : "https://ipfs.io/ipfs/QmYEJW5kdGWs54C2KdYkT1x6iJ14RTwaU3GKRvkXRNBc4A",
         title : "LID Protocol | Multi – Channel Network – Community Voting & Project AMA",
-        content : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        content : "Multi-Channel Network is focused on bringing about world-class circular ecosystem aimed at providing access to the right partnership, plan flexibility and project start-up holistic sustainability.",
         readtime : "Oct 16, 2020 11 min read",
-        ipfsHash : "QmThefdMw9ZECMYWDeYQZ5KjJGWfioYPZydRKMtNKuArUf"
+        ipfsHash : "QmZN8sbjcPoisvZRaoWd7nMsSGQDY2MLhkiVwPcBaujhzv"
     },
     {
         id : '1',
         picture : "https://ipfs.io/ipfs/QmPCX9TyMb4GQLAsdZ5uKRmVTbdqiHA2h5pqaZbEkMxMhh",
         title : "Integrity and Safety a Way Back for Sustainable Defi",
-        content : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        content : "When reports surfaced in late September that a group of crypto influencers had conspired to defraud unsuspecting Defi investors, social media and CryptoTwitter spun into a backlash, pouring scorn and vitriol on those participating in the leaked Telegram chats.",
         readtime : "Oct 15, 2020 10 min read",
         ipfsHash : "QmNR4pTKWg38vSiZJ2dkKUuwgDACHytpraCCsvZ21yWpVh"
     },
@@ -26,7 +26,7 @@ const BlogData = [
         id : '2',
         picture : "https://ipfs.io/ipfs/QmW7AzrgnpAEB2mW8i4Piozu6R38kdS6DAPkifarkTWLd2",
         title : "6 Reasons why DEFI is here to stay and not a fad!",
-        content : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        content : "We at LID believe that the excitement around DEFI is just the start of a galactic big bang that is going to launch blockchain and crypto onto an entirely different planet. And LID will be there to help you colonize that new planet with our LID protocol. We have forecast the trajectory of this new universe and we are going to make sure we and mitigate the risks associated with inhabiting the new world of DEFI.",
         readtime : "Oct 5, 2020 13 min read",
         ipfsHash : "QmUPXLrbCyMryPhnKfanj5pNhu9PkxQPMBK21tNCXzH218"
     }
