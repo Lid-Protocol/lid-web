@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from "styled-components";
 
 import mainLogo from '../components/TopBar/main-logo.png'
@@ -12,6 +12,10 @@ const BlogPageWrapper = styled.div`
     padding-left: ${props => props.padding};
     padding-right: ${props => props.padding};
     font-family: Gotham, sans-serif;
+
+    li {
+        line-height: 1.8;
+    }
 
     p {
         padding-top: 30px;
@@ -41,12 +45,8 @@ const HeaderContainer = styled.div`
 
 `
 
-const BlueLineBox = styled.div`
-    border-left: 1px solid #0c65EB;
-`
-
 //Pass the article IDs IPFS hash into the IFPS page generator.
-export default function DeFiArticle ( {Read_Time, IPFShash} ) {
+export default function DeFiArticle({ Read_Time, IPFShash }) {
 
     const [padding, setPadding] = useState("20%");
     const [subHeaderPadding, setSubHeaderPadding] = useState("20%")
@@ -60,20 +60,20 @@ export default function DeFiArticle ( {Read_Time, IPFShash} ) {
             setSubHeaderPadding("7%");
         }
     })
-    
- return (
-  <>
-    <HeaderContainer padding={subHeaderPadding}>
-        <h2>LID Offical Blog</h2>
 
-        <p>Check out our latest blog posts and updates</p>
-    </HeaderContainer>
+    return (
+        <>
+            <HeaderContainer padding={subHeaderPadding}>
+                <h2>LID Offical Blog</h2>
 
-    <BlogPageWrapper padding={padding}>
-        <div Style="padding-top: 45px;">
-            <img src={mainLogo} 
-                height="35px;"/>
-            <p Style="margin-left: 55px;
+                <p>Check out our latest blog posts and updates</p>
+            </HeaderContainer>
+
+            <BlogPageWrapper padding={padding}>
+                <div Style="padding-top: 45px;">
+                    <img src={mainLogo}
+                        height="35px;" />
+                    <p Style="margin-left: 55px;
                       margin-top: -78px;
                       margin-bottom: 20px
                       ">LID Protocol
@@ -81,11 +81,11 @@ export default function DeFiArticle ( {Read_Time, IPFShash} ) {
                                 color: #9e9e9e;
                                 font-size: 15px;
                                 "> {Read_Time}</p>
-            </p>     
-        </div>
-       <IPFSpage ipfsHash={IPFShash} />
-    </BlogPageWrapper>
-    <div Style="margin-top: 50px;" />
-  </>
+                    </p>
+                </div>
+                <IPFSpage ipfsHash={IPFShash} />
+            </BlogPageWrapper>
+            <div Style="margin-top: 50px;" />
+        </>
     );
 }

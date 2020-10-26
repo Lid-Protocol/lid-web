@@ -7,6 +7,14 @@ import DeFiArticle from './DeFiArticle'
 // https://ipfs.io/ipfs/QmRCPhUfc6tWRpkJrPk7kE2jSUAVLxTUjNHnEti2NbRpba
 const BlogData = [
     {
+        id: '4',
+        picture: "https://ipfs.io/ipfs/QmPP6mRDDXiEBKU2yntcdabMGT8Tfr7XeFMooM1mxqJ4A7",
+        title: "Could DeFi eclipse traditional finance?",
+        content: "DeFi is more than just a buzz word or acronym. Decentralized finance is a revolution that is set to usher in a new age in finance. So at LID we hereby pose the question - could DeFi actually overtake traditional finance? ",
+        readtime: "Oct 26, 2020 9 min read",
+        ipfsHash: "QmcwaQSg9JVYeakKLnvJmcoKyDeSWb51Ze82KAfBrf2bUe"
+    },
+    {
         id: '0',
         picture: "https://ipfs.io/ipfs/QmW1nJJTcQMRJ5HuRAg55dEcEfTeFPbL8XAA6KFKCYc5bM",
         title: "Introducing LIFTOFF: The first fully automated “LVO” launchpad in DeFi",
