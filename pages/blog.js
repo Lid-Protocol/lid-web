@@ -12,7 +12,7 @@ const BlogData = [
         title: "Could DeFi eclipse traditional finance?",
         content: "DeFi is more than just a buzz word or acronym. Decentralized finance is a revolution that is set to usher in a new age in finance. So at LID we hereby pose the question - could DeFi actually overtake traditional finance? ",
         readtime: "Oct 26, 2020 9 min read",
-        ipfsHash: "QmUS93iGGoDYypqbxDniV62AayksqyUCXEG9gs5WKCDXwj"
+        ipfsHash: "QmSA6Dn5VzvLjPhW7Eu9nr7x3BqLawnFP8P8wYm285s9Dg"
     },
     {
         id: '0',
