@@ -1,18 +1,18 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 
-export default function IPFSpage ({ipfsHash}) {
+export default function IPFSpage({ ipfsHash }) {
 
     const ipfsPageHash = `https://ipfs.io/ipfs/${ipfsHash}`
 
     const [htmlContent, setHtmlContent] = useState("");
 
-    async function get_html_content () {
+    async function get_html_content() {
         let response;
-        
+
         try {
             response = await fetch(ipfsPageHash)
-                            .then((resp)=>{ return resp.text() })
-                            .then((text)=>{ setHtmlContent(text) })
+                .then((resp) => { return resp.text() })
+                .then((text) => { setHtmlContent(text) })
         } catch (ex) {
             console.log(ex);
         }
@@ -26,7 +26,7 @@ export default function IPFSpage ({ipfsHash}) {
 
     return (
         <>
-          <div dangerouslySetInnerHTML={template} />
+            <div dangerouslySetInnerHTML={template} />
         </>
     )
 }

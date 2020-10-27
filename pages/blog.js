@@ -122,19 +122,14 @@ export default function Blog() {
     }
 
     function updatePageById(id) {
-
-        {
-            BlogData.map(data => {
-                console.log(data);
-                if (data.id == id) {
-                    setVeiwingPage(true);
-                    setIpfsHash(data.ipfsHash);
-                    setReadTime(data.readtime)
-                    window.scrollTo(0, 0);
-                }
-            })
-        };
-
+        BlogData.map(data => {
+            if (data.id == id) {
+                setVeiwingPage(true);
+                setIpfsHash(data.ipfsHash);
+                setReadTime(data.readtime)
+                window.scrollTo(0, 0);
+            }
+        })
     }
 
     useEffect(() => {
