@@ -7,6 +7,14 @@ import DeFiArticle from './DeFiArticle'
 // https://ipfs.io/ipfs/QmRCPhUfc6tWRpkJrPk7kE2jSUAVLxTUjNHnEti2NbRpba
 const BlogData = [
     {
+        id: '5',
+        picture: "https://ipfs.io/ipfs/QmQSht8a4GeDoJ29uDXL7F7e5Foihf6sEpNZR1wR4wxLuf",
+        title: "Can Locking Liquidity be a Profitable Way to Earn Crypto",
+        content: "Liquidity in any financial market is important, but perhaps more so in crypto markets. And in narrower Defi markets, where the participants are fewer, liquidity is crucially at play, yet so fragile. Without the depth of liquidity, sudden, and large movements can sway asset prices so quickly that it no longer becomes predictable enough for safe or reliable trading.",
+        readtime: "Oct 29, 2020 11 min read",
+        ipfsHash: "Qme8HsTtykvqi6JHtmSzzNYe72r1uDRpC7LPns988YM5Nd"
+    },
+    {
         id: '4',
         picture: "https://ipfs.io/ipfs/QmPP6mRDDXiEBKU2yntcdabMGT8Tfr7XeFMooM1mxqJ4A7",
         title: "Could DeFi eclipse traditional finance?",
@@ -122,19 +130,14 @@ export default function Blog() {
     }
 
     function updatePageById(id) {
-
-        {
-            BlogData.map(data => {
-                console.log(data);
-                if (data.id == id) {
-                    setVeiwingPage(true);
-                    setIpfsHash(data.ipfsHash);
-                    setReadTime(data.readtime)
-                    window.scrollTo(0, 0);
-                }
-            })
-        };
-
+        BlogData.map(data => {
+            if (data.id == id) {
+                setVeiwingPage(true);
+                setIpfsHash(data.ipfsHash);
+                setReadTime(data.readtime)
+                window.scrollTo(0, 0);
+            }
+        })
     }
 
     useEffect(() => {
