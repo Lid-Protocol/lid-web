@@ -18,36 +18,35 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   Component,
   pageProps,
 }) => {
-  
-  const [urlPath, setUrlPath] = useState("/");
+  const [urlPath, setUrlPath] = useState('/');
 
   useEffect(() => {
-    setUrlPath(Router.asPath)
-  })
+    setUrlPath(Router.asPath);
+  });
 
   return (
-  <ThemeProvider theme={theme}>
-    <AppWrapper>
-      <Head>
-        <meta itemProp="image" content="/static/opengraph.png" />
-        <meta property="og:url" content="https://lid.sh" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Liquidity Dividends Protocol" />
-        <meta
-          property="og:description"
-          content="Liquidity Dividends Protocol"
-        />
-        <meta property="og:image" content="/static/opengraph.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Liquidity Dividends Protocol" />
-        <meta
-          name="twitter:description"
-          content="Liquidity Dividends Protocol"
-        />
-        <meta name="twitter:image" content="/static/opengraph.png" />
-        <link rel="icon" type="image/png" href="/static/logo.png" />
-        <link rel="apple-touch-icon" href="/static/logo.png" />
-        <script
+    <ThemeProvider theme={theme}>
+      <AppWrapper>
+        <Head>
+          <meta itemProp="image" content="/static/opengraph.png" />
+          <meta property="og:url" content="https://lid.sh" />
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content="Liquidity Dividends Protocol" />
+          <meta
+            property="og:description"
+            content="Liquidity Dividends Protocol"
+          />
+          <meta property="og:image" content="/static/opengraph.png" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Liquidity Dividends Protocol" />
+          <meta
+            name="twitter:description"
+            content="Liquidity Dividends Protocol"
+          />
+          <meta name="twitter:image" content="/static/opengraph.png" />
+          <link rel="icon" type="image/png" href="/static/logo.png" />
+          <link rel="apple-touch-icon" href="/static/logo.png" />
+          <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
           />
@@ -63,13 +62,13 @@ const App: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
             `,
             }}
           />
-      </Head>
-      <TopBar />
-      <Component {...pageProps} />
-      <Footer />
-    </AppWrapper>
-  </ThemeProvider>
-  )
+        </Head>
+        <TopBar />
+        <Component {...pageProps} />
+        <Footer />
+      </AppWrapper>
+    </ThemeProvider>
+  );
 };
 
 export default App;
