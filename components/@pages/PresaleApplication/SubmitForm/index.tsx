@@ -1,44 +1,12 @@
-import React, { FC, useState, useEffect, forwardRef } from 'react';
+import React, { FC, useState, useEffect, forwardRef, useMemo } from 'react';
 import MaterialTable from 'material-table';
 
-import {
-  Box,
-  Text,
-  Button,
-  FlexBox,
-  Image,
-  List,
-  Input,
-} from 'components/@basic';
-import ContentWrapper from 'components/ContentWrapper';
-import A from 'components/A';
+import { Box, Text, Button, FlexBox, Input } from 'components/@basic';
 import H2 from 'components/H2';
-import H3 from 'components/H3';
 
 import { colors } from 'styles/theme';
 
 import Modal from 'react-modal';
-
-Modal.setAppElement('#__next');
-
-interface IProps {
-  isOpen: boolean;
-  closeModal: () => void;
-}
-
-const customStyles = {
-  overlay: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    background: 'none',
-  },
-  content: {
-    background: '#e4e4e4',
-  },
-};
 
 import {
   AddBox,
@@ -82,9 +50,36 @@ const tableIcons = {
   ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />),
 };
 
+Modal.setAppElement('#__next');
+
+const customStyles = {
+  overlay: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    background: 'none',
+  },
+  content: {
+    background: '#e4e4e4',
+  },
+};
+
+const formatFloat = (val: number) => {
+  return parseFloat(val.toFixed(2));
+};
+
+interface IProps {
+  isOpen: boolean;
+  closeModal: () => void;
+}
+
 const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
+  const [liq, setLIQ] = useState(19.82);
+
   const [tokenPresale, setTokenPresale] = useState({
-    price: 132,
+    price: 0,
     referralFee: 2.5,
     hardcap: 1000,
     softcap: 500,
@@ -94,12 +89,12 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
   const [tokenDistribution, setTokenDistribution] = useState({
     farming: 20,
     presale: 30,
-    xEth: 15.86,
-    xLid: 2.64,
-    xTusd: 1.32,
+    xEth: 0,
+    xLid: 0,
+    xTusd: 0,
     team: 10,
     marketing: 5,
-    secondMarket: 14.18,
+    secondMarket: 0,
     lid: 1,
   });
 
@@ -111,70 +106,111 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
     lid: 5,
   });
 
-  const [columns, setColumns] = useState([
-    { title: 'ETH Start', field: 'ethStart', filtering: false, sorting: false },
-    {
-      title: 'Bonus',
-      field: 'bonus',
-      filtering: false,
-    },
-    {
-      title: 'Base Price',
-      field: 'basePrice',
-      filtering: false,
-      editable: 'never',
-    },
-    {
-      title: 'After Referral',
-      field: 'afterReferral',
-      filtering: false,
-      editable: 'never',
-    },
-    {
-      title: 'Presale Tokens',
-      field: 'presaleTokens',
-      filtering: false,
-      editable: 'never',
-    },
-  ]);
-
   const [bonusRange, setBonusRange] = useState([
     {
       ethStart: 0,
-      bonus: 25,
-      basePrice: 165,
-      afterReferral: 161,
-      presaleTokens: 16517,
+      bonus: 5,
+      basePrice: 0,
+      afterReferral: 0,
+      presaleTokens: 0,
+      tableData: {
+        id: 0,
+      },
     },
     {
       ethStart: 100,
-      bonus: 20,
-      basePrice: 159,
-      afterReferral: 155,
-      presaleTokens: 15856,
+      bonus: 4.5,
+      basePrice: 0,
+      afterReferral: 0,
+      presaleTokens: 0,
+      tableData: {
+        id: 1,
+      },
     },
     {
       ethStart: 200,
-      bonus: 15,
-      basePrice: 152,
-      afterReferral: 148,
-      presaleTokens: 15195,
+      bonus: 4,
+      basePrice: 0,
+      afterReferral: 0,
+      presaleTokens: 0,
+      tableData: {
+        id: 2,
+      },
     },
     {
       ethStart: 300,
-      bonus: 12.5,
+      bonus: 3.5,
       basePrice: 149,
       afterReferral: 145,
       presaleTokens: 29730,
+      tableData: {
+        id: 3,
+      },
     },
     {
       ethStart: 500,
-      bonus: 10,
-      basePrice: 145,
-      afterReferral: 142,
-      presaleTokens: 72673,
+      bonus: 3,
+      basePrice: 0,
+      afterReferral: 0,
+      presaleTokens: 0,
+      tableData: {
+        id: 4,
+      },
     },
   ]);
+
+  const updateData = () => {
+    const totalEthLiq =
+      ethDistribution.xEth + ethDistribution.xLid + ethDistribution.xTusd;
+    const tokenXEth = (ethDistribution.xEth / totalEthLiq) * liq;
+
+    const tokenXLid = (ethDistribution.xLid / totalEthLiq) * liq;
+
+    const tokenXTusd = (ethDistribution.xTusd / totalEthLiq) * liq;
+
+    const tokenSecondMarket =
+      64 -
+      tokenDistribution.team -
+      tokenDistribution.farming -
+      tokenXEth -
+      tokenXLid -
+      tokenXTusd;
+    const tokenPrice =
+      (tokenPresale.totalSupply * tokenXEth) /
+      tokenPresale.hardcap /
+      ethDistribution.xEth;
+
+    setTokenDistribution((prevState) => ({
+      ...prevState,
+      xEth: formatFloat(tokenXEth),
+      xLid: formatFloat(tokenXLid),
+      xTusd: formatFloat(tokenXTusd),
+      secondMarket: formatFloat(tokenSecondMarket),
+    }));
+
+    setTokenPresale((prevState) => ({
+      ...prevState,
+      price: formatFloat(tokenPrice),
+    }));
+
+    const updatedRange: any[] = [];
+    for (let i = 0; i < bonusRange.length; i++) {
+      const basePrice = (1 + bonusRange[i].bonus / 100) * tokenPrice;
+
+      updatedRange[i] = {
+        ...bonusRange[i],
+        basePrice: formatFloat(basePrice),
+        afterReferral: formatFloat(basePrice / 1.25),
+        presaleTokens: formatFloat(
+          basePrice *
+            (i === bonusRange.length - 1
+              ? tokenPresale.hardcap - bonusRange[i].ethStart
+              : bonusRange[i + 1].ethStart - bonusRange[i].ethStart)
+        ),
+      };
+    }
+    setBonusRange(updatedRange);
+  };
 
   const onChangeLiqXETH = (value) => {
     if (value > 80 || value < 0) {
@@ -187,6 +223,51 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
       dev: 80 - value,
     }));
   };
+
+  const onChangeLiq = (value) => {
+    if (value < 0 || value >= 100) {
+      return;
+    }
+
+    setLIQ(value);
+  };
+
+  const onChangePresale = (key: string, value: number) => {
+    if (value < 0) {
+      return;
+    }
+
+    setTokenPresale((prevState) => ({
+      ...prevState,
+      [key]: value,
+    }));
+  };
+
+  const onChangeTokenDistribution = (key: string, value: number) => {
+    if (value < 0) {
+      return;
+    }
+
+    setTokenDistribution((prevState) => ({
+      ...prevState,
+      [key]: value,
+    }));
+  };
+
+  const { xEth } = ethDistribution;
+  const { hardcap, softcap, totalSupply, price } = tokenPresale;
+  const { farming, team } = tokenDistribution;
+
+  useEffect(() => {
+    updateData();
+  }, [liq, xEth, hardcap, softcap, totalSupply, farming, team]);
+
+  useEffect(() => {
+    updateData();
+  }, []);
+
+  let calcByLIQ = 0;
+  bonusRange.map((el) => (calcByLIQ = calcByLIQ + el.presaleTokens));
 
   return (
     <Modal isOpen={isOpen} onRequestClose={closeModal} style={customStyles}>
@@ -212,8 +293,9 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
             <Input
               type="text"
               fontSize="14px"
-              disabled={true}
               value={tokenPresale.price}
+              readOnly
+              disabled
             />
           </FlexBox>
 
@@ -224,30 +306,47 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
             <Input
               type="text"
               fontSize="14px"
-              disabled={true}
-              value={`${tokenPresale.referralFee}%`}
+              defaultValue={`${tokenPresale.referralFee}%`}
+              disabled
             />
           </FlexBox>
           <FlexBox marginBottom="10px" flexDirection="column">
             <Text fontSize="16px" fontWeight="500" color={colors.white}>
               Hardcap(ETH)
             </Text>
-            <Input type="text" fontSize="16px" value={tokenPresale.hardcap} />
+            <Input
+              type="number"
+              fontSize="16px"
+              value={tokenPresale.hardcap}
+              onChange={(e) =>
+                onChangePresale('hardcap', Number(e.target.value))
+              }
+            />
           </FlexBox>
           <FlexBox marginBottom="10px" flexDirection="column">
             <Text fontSize="16px" fontWeight="500" color={colors.white}>
               Softcap(ETH)
             </Text>
-            <Input type="text" fontSize="16px" value={tokenPresale.softcap} />
+            <Input
+              type="number"
+              fontSize="16px"
+              value={tokenPresale.softcap}
+              onChange={(e) =>
+                onChangePresale('softcap', Number(e.target.value))
+              }
+            />
           </FlexBox>
           <FlexBox marginBottom="10px" flexDirection="column">
             <Text fontSize="16px" fontWeight="500" color={colors.white}>
               Total Supply
             </Text>
             <Input
-              type="text"
+              type="number"
               fontSize="16px"
               value={tokenPresale.totalSupply}
+              onChange={(e) =>
+                onChangePresale('totalSupply', Number(e.target.value))
+              }
             />
           </FlexBox>
         </Box>
@@ -266,9 +365,12 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
               Farming
             </Text>
             <Input
-              type="text"
+              type="number"
               fontSize="14px"
-              value={`${tokenDistribution.farming}%`}
+              value={tokenDistribution.farming}
+              onChange={(e) =>
+                onChangeTokenDistribution('farming', Number(e.target.value))
+              }
             />
           </FlexBox>
 
@@ -277,9 +379,12 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
               Team
             </Text>
             <Input
-              type="text"
+              type="number"
               fontSize="16px"
-              value={`${tokenDistribution.team}%`}
+              value={tokenDistribution.team}
+              onChange={(e) =>
+                onChangeTokenDistribution('team', Number(e.target.value))
+              }
             />
           </FlexBox>
           <FlexBox marginBottom="10px" flexDirection="column">
@@ -289,7 +394,7 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
             <Input
               type="text"
               fontSize="16px"
-              value={`${tokenDistribution.marketing}%`}
+              defaultValue={`${tokenDistribution.marketing}%`}
               disabled={true}
             />
           </FlexBox>
@@ -301,6 +406,7 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
               type="text"
               fontSize="16px"
               value={`${tokenDistribution.secondMarket}%`}
+              readOnly
               disabled={true}
             />
           </FlexBox>
@@ -311,7 +417,7 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
             <Input
               type="text"
               fontSize="16px"
-              value={`${tokenDistribution.lid}%`}
+              defaultValue={`${tokenDistribution.lid}%`}
               disabled={true}
             />
           </FlexBox>
@@ -331,10 +437,10 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
               Liq (XXX/ETH)
             </Text>
             <Input
-              type="text"
-              fontSize="14px"
+              type="number"
+              fontSize="16px"
               value={ethDistribution.xEth}
-              onChange={(e) => onChangeLiqXETH(e.target.value)}
+              onChange={(e: any) => onChangeLiqXETH(Number(e.target.value))}
             />
           </FlexBox>
           <FlexBox marginBottom="10px" flexDirection="column">
@@ -344,7 +450,7 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
             <Input
               type="text"
               fontSize="16px"
-              value={`${ethDistribution.xLid}%`}
+              defaultValue={`${ethDistribution.xLid}%`}
               disabled={true}
             />
           </FlexBox>
@@ -355,7 +461,7 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
             <Input
               type="text"
               fontSize="16px"
-              value={`${ethDistribution.xTusd}%`}
+              defaultValue={`${ethDistribution.xTusd}%`}
               disabled={true}
             />
           </FlexBox>
@@ -367,7 +473,8 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
               type="text"
               fontSize="16px"
               value={`${ethDistribution.dev}%`}
-              disabled={true}
+              readOnly
+              disabled
             />
           </FlexBox>
           <FlexBox marginBottom="10px" flexDirection="column">
@@ -377,41 +484,196 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
             <Input
               type="text"
               fontSize="16px"
-              value={`${ethDistribution.lid}%`}
-              disabled={true}
+              defaultValue={`${ethDistribution.lid}%`}
+              disabled
             />
           </FlexBox>
         </Box>
       </FlexBox>
+      <FlexBox flexWrap="wrap" justifyContent="space-between">
+        <Box flex={1}>
+          <MaterialTable
+            title="Bonus Range"
+            icons={tableIcons}
+            columns={[
+              {
+                title: 'ETH Start',
+                field: 'ethStart',
+                filtering: false,
+                sorting: false,
+              },
+              {
+                title: 'Bonus',
+                field: 'bonus',
+                filtering: false,
+                editable: 'never',
+              },
+              {
+                title: 'Base Price',
+                field: 'basePrice',
+                filtering: false,
+                editable: 'never',
+              },
+              {
+                title: 'After Referral',
+                field: 'afterReferral',
+                filtering: false,
+                editable: 'never',
+              },
+              {
+                title: 'Presale Tokens',
+                field: 'presaleTokens',
+                filtering: false,
+                editable: 'never',
+              },
+            ]}
+            data={bonusRange}
+            options={{
+              search: false,
+              sorting: false,
+              paging: false,
+            }}
+            editable={{
+              onRowUpdate: (newData, oldData) =>
+                new Promise((resolve, reject) => {
+                  setTimeout(() => {
+                    const updatedIndex = oldData!.tableData.id;
+                    const updatedEthStart = Number(newData.ethStart);
+                    const maxEthStart =
+                      updatedIndex < 4
+                        ? bonusRange[updatedIndex + 1].ethStart
+                        : hardcap;
+                    if (
+                      isNaN(updatedEthStart) ||
+                      updatedEthStart > maxEthStart
+                    ) {
+                      reject();
+                    } else {
+                      let updatedRange = bonusRange;
+                      updatedRange[updatedIndex].ethStart = updatedEthStart;
 
-      <MaterialTable
-        title="Bonus Range"
-        icons={tableIcons}
-        columns={columns}
-        data={bonusRange}
-        options={{
-          search: false,
-          sorting: false,
-          paging: false,
-        }}
-        editable={{
-          onRowAdd: (newData) => {
-            setBonusRange([...bonusRange, newData]);
-          },
-          onRowUpdate: (newData, oldData) => {
-            const dataUpdate = [...bonusRange];
-            const index = oldData.tableData.id;
-            dataUpdate[index] = newData;
-            setBonusRange([...dataUpdate]);
-          },
-          onRowDelete: (oldData) => {
-            const dataDelete = [...bonusRange];
-            const index = oldData.tableData.id;
-            dataDelete.splice(index, 1);
-            setBonusRange([...dataDelete]);
-          },
-        }}
-      />
+                      updatedRange.map((data, index) => {
+                        const basePrice = (1 + data.bonus / 100) * price;
+                        return {
+                          ...data,
+                          basePrice: formatFloat(basePrice),
+                          afterReferral: formatFloat(basePrice / 1.25),
+                          presaleTokens: formatFloat(
+                            basePrice *
+                              (index === updatedRange.length - 1
+                                ? hardcap - data.ethStart
+                                : updatedRange[index + 1].ethStart -
+                                  data.ethStart)
+                          ),
+                        };
+                      });
+                      setBonusRange(updatedRange);
+                      resolve();
+                    }
+                  }, 1000);
+                }),
+            }}
+          />
+        </Box>
+
+        <Box
+          borderRadius={['10px']}
+          paddingX={['40px']}
+          paddingY={['20px']}
+          flex={1}
+          marginLeft={'10px'}
+          backgroundColor="#4a4a4a"
+        >
+          <H2 color={colors.white} marginBottom={10}>
+            Result
+          </H2>
+          <FlexBox marginBottom="10px" flexDirection="row">
+            <Text
+              fontSize="16px"
+              fontWeight="500"
+              marginRight={['10px']}
+              color={colors.white}
+            >
+              Liq:
+            </Text>
+            <Input
+              type="number"
+              fontSize="14px"
+              maxWidth={['200px']}
+              value={liq}
+              onChange={(e: any) => onChangeLiq(Number(e.target.value))}
+            />
+          </FlexBox>
+          <Text
+            fontSize="16px"
+            fontWeight="500"
+            marginBottom={['5px']}
+            color={colors.white}
+            display="block"
+          >
+            {`Presale: ${tokenDistribution.presale}%`}
+          </Text>
+          <Text
+            fontSize="16px"
+            fontWeight="500"
+            color={colors.white}
+            marginBottom={['5px']}
+            display="block"
+          >
+            {`Liq (XXX/ETH): ${tokenDistribution.xEth}%`}
+          </Text>
+          <Text
+            fontSize="16px"
+            fontWeight="500"
+            color={colors.white}
+            marginBottom={['5px']}
+            display="block"
+          >
+            {`Liq (XXX/LID): ${tokenDistribution.xLid}%`}
+          </Text>
+          <Text
+            fontSize="16px"
+            fontWeight="500"
+            color={colors.white}
+            marginBottom={['25px']}
+            display="block"
+          >
+            {`Liq (XXX/TUSD): ${tokenDistribution.xTusd}%`}
+          </Text>
+
+          <Text
+            fontSize="16px"
+            fontWeight="500"
+            color={colors.white}
+            marginBottom={['5px']}
+            display="block"
+          >
+            {`Presale Token: ${tokenPresale.totalSupply * 0.3}`}
+          </Text>
+          <Text
+            fontSize="16px"
+            fontWeight="500"
+            color={colors.white}
+            marginBottom={['5px']}
+            display="block"
+          >
+            {`Presale Token(from LIQ %): ${formatFloat(calcByLIQ)}`}
+          </Text>
+
+          <Button
+            as="button"
+            variant="gradient"
+            mt={5}
+            mr={4}
+            mb={[4, 0]}
+            alignSelf={['inherit', 'inherit', 'flex-start']}
+            // onClick={openModal}
+            // href="mailto:team@lid.sh"
+          >
+            Submit
+          </Button>
+        </Box>
+      </FlexBox>
     </Modal>
   );
 };
