@@ -1,53 +1,17 @@
 import React, { FC, useState, useEffect, forwardRef, useMemo } from 'react';
 import MaterialTable from 'material-table';
+import { Check, Clear, Edit } from '@material-ui/icons';
+import { Icons } from 'material-table';
+import Modal from 'react-modal';
 
 import { Box, Text, Button, FlexBox, Input } from 'components/@basic';
 import H2 from 'components/H2';
-
 import { colors } from 'styles/theme';
 
-import Modal from 'react-modal';
-
-import {
-  AddBox,
-  ArrowDownward,
-  Check,
-  ChevronLeft,
-  ChevronRight,
-  Clear,
-  DeleteOutline,
-  Edit,
-  FilterList,
-  FirstPage,
-  LastPage,
-  Remove,
-  SaveAlt,
-  Search,
-  ViewColumn,
-} from '@material-ui/icons';
-
-const tableIcons = {
-  Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
+const tableIcons: Icons = {
   Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
   Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
-  Delete: forwardRef((props, ref) => <DeleteOutline {...props} ref={ref} />),
-  DetailPanel: forwardRef((props, ref) => (
-    <ChevronRight {...props} ref={ref} />
-  )),
   Edit: forwardRef((props, ref) => <Edit {...props} ref={ref} />),
-  Export: forwardRef((props, ref) => <SaveAlt {...props} ref={ref} />),
-  Filter: forwardRef((props, ref) => <FilterList {...props} ref={ref} />),
-  FirstPage: forwardRef((props, ref) => <FirstPage {...props} ref={ref} />),
-  LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref} />),
-  NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
-  PreviousPage: forwardRef((props, ref) => (
-    <ChevronLeft {...props} ref={ref} />
-  )),
-  ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
-  Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
-  SortArrow: forwardRef((props, ref) => <ArrowDownward {...props} ref={ref} />),
-  ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
-  ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />),
 };
 
 Modal.setAppElement('#__next');
@@ -62,6 +26,10 @@ const customStyles = {
     background: 'none',
   },
   content: {
+    top: '2%',
+    bottom: '2%',
+    left: '5%',
+    right: '5%',
     background: '#e4e4e4',
   },
 };
@@ -272,7 +240,7 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
   return (
     <Modal isOpen={isOpen} onRequestClose={closeModal} style={customStyles}>
       <FlexBox
-        flexWrap="wrap"
+        flexDirection={['column', 'row']}
         justifyContent="space-between"
         marginBottom={['20px']}
       >
@@ -281,7 +249,8 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
           paddingX={['40px']}
           paddingY={['20px']}
           background="linear-gradient(0deg, rgba(12,101,235,1) 0%, rgba(28,158,247,1) 100%)"
-          width="30%"
+          width={['100%', '30%']}
+          marginBottom={['10px', '0px']}
         >
           <H2 color={colors.white} marginBottom={10}>
             TOKEN PRESALE
@@ -355,7 +324,8 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
           paddingX={['40px']}
           paddingY={['20px']}
           background="linear-gradient(0deg, rgba(12,101,235,1) 0%, rgba(28,158,247,1) 100%)"
-          width="30%"
+          width={['100%', '30%']}
+          marginBottom={['10px', '0px']}
         >
           <H2 color={colors.white} marginBottom={10}>
             TOKEN DISTRIBUTION
@@ -427,7 +397,7 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
           paddingX={['40px']}
           paddingY={['20px']}
           background="linear-gradient(0deg, rgba(12,101,235,1) 0%, rgba(28,158,247,1) 100%)"
-          width="30%"
+          width={['100%', '30%']}
         >
           <H2 color={colors.white} marginBottom={10}>
             ETH DISTRIBUTION
@@ -490,7 +460,7 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
           </FlexBox>
         </Box>
       </FlexBox>
-      <FlexBox flexWrap="wrap" justifyContent="space-between">
+      <FlexBox flexDirection={['column', 'row']} justifyContent="space-between">
         <Box flex={1}>
           <MaterialTable
             title="Bonus Range"
@@ -577,11 +547,12 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
         </Box>
 
         <Box
+          flex={1}
           borderRadius={['10px']}
           paddingX={['40px']}
           paddingY={['20px']}
-          flex={1}
-          marginLeft={'10px'}
+          marginLeft={['0px', '10px']}
+          marginTop={['10px', '0px']}
           backgroundColor="#4a4a4a"
         >
           <H2 color={colors.white} marginBottom={10}>

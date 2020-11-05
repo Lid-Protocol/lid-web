@@ -42,7 +42,7 @@ export type BoxProps = {
   value?: string | number;
   defaultValue?: string | number;
   onClick?: (e: Event) => void;
-  onChange?: (e: Event) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 } & FlexboxProps &
   SpaceProps &
   SizeProps &
