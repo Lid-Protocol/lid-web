@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, forwardRef, useMemo } from 'react';
+import React, { FC, useState, useEffect, forwardRef } from 'react';
 import MaterialTable from 'material-table';
 import { Check, Clear, Edit } from '@material-ui/icons';
 import { Icons } from 'material-table';
@@ -38,6 +38,12 @@ const formatFloat = (val: number) => {
   return parseFloat(val.toFixed(2));
 };
 
+const encode = (data) => {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+};
+
 interface IProps {
   isOpen: boolean;
   closeModal: () => void;
@@ -45,6 +51,13 @@ interface IProps {
 
 const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
   const [liq, setLIQ] = useState(19.82);
+
+  const [formData, setFormData] = useState({
+    tokenAddress: '',
+    email: '',
+    websiteUrl: '',
+    userName: '',
+  });
 
   const [tokenPresale, setTokenPresale] = useState({
     price: 0,
@@ -219,6 +232,26 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
     setTokenDistribution((prevState) => ({
       ...prevState,
       [key]: value,
+    }));
+  };
+
+  const onSubmit = (e) => {
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'contact', ...formData }),
+    })
+      .then(() => alert('Success!'))
+      .catch((error) => alert(error));
+
+    e.preventDefault();
+  };
+
+  const onChangeForm = (key: string, val: string) => {
+    console.log(key, val);
+    setFormData((prev) => ({
+      ...prev,
+      [key]: val,
     }));
   };
 
@@ -630,19 +663,64 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
           >
             {`Presale Token(from LIQ %): ${formatFloat(calcByLIQ)}`}
           </Text>
-
-          <Button
-            as="button"
-            variant="gradient"
-            mt={5}
-            mr={4}
-            mb={[4, 0]}
-            alignSelf={['inherit', 'inherit', 'flex-start']}
-            // onClick={openModal}
-            // href="mailto:team@lid.sh"
-          >
-            Submit
-          </Button>
+          <Box mt={5}>
+            <form onSubmit={onSubmit}>
+              <Box color={colors.white}>
+                <label>
+                  Your Token Address:{' '}
+                  <input
+                    type="text"
+                    name="tokenAddress"
+                    value={formData.tokenAddress}
+                    onChange={(e) =>
+                      onChangeForm('tokenAddress', e.target.value)
+                    }
+                  />
+                </label>
+              </Box>
+              <Box color={colors.white}>
+                <label>
+                  Your Email:{' '}
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={(e) => onChangeForm('email', e.target.value)}
+                  />
+                </label>
+              </Box>
+              <Box color={colors.white}>
+                <label>
+                  Your Website/TG Url:{' '}
+                  <input
+                    type="text"
+                    name="websiteUrl"
+                    value={formData.websiteUrl}
+                    onChange={(e) => onChangeForm('websiteUrl', e.target.value)}
+                  />
+                </label>
+              </Box>
+              <Box color={colors.white}>
+                <label>
+                  Your Discord/Telegram User Name:{' '}
+                  <input
+                    type="text"
+                    name="userName"
+                    value={formData.userName}
+                    onChange={(e) => onChangeForm('userName', e.target.value)}
+                  />
+                </label>
+              </Box>
+              <Button
+                as="button"
+                type="submit"
+                variant="gradient"
+                alignSelf={['inherit', 'inherit', 'flex-start']}
+              >
+                Submit
+              </Button>
+            </form>
+          </Box>
         </Box>
       </FlexBox>
     </Modal>
