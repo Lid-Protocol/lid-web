@@ -639,7 +639,7 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
             fontSize="16px"
             fontWeight="500"
             color={colors.white}
-            marginBottom={['25px']}
+            marginBottom={['5px']}
             display="block"
           >
             {`Liq (XXX/TUSD): ${tokenDistribution.xTusd}%`}
@@ -663,11 +663,11 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
           >
             {`Presale Token(from LIQ %): ${formatFloat(calcByLIQ)}`}
           </Text>
-          <Box mt={5}>
+          <Box mt="15px" fontSize="16px" fontWeight="500" color={colors.white}>
             <form onSubmit={onSubmit} data-netlify="true">
-              <Box color={colors.white}>
+              <Box mb="5px">
                 <label>
-                  Your Token Address:{' '}
+                  Token Address:{' '}
                   <input
                     type="text"
                     name="tokenAddress"
@@ -678,9 +678,9 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
                   />
                 </label>
               </Box>
-              <Box color={colors.white}>
+              <Box mb="5px">
                 <label>
-                  Your Email:{' '}
+                  Email:{' '}
                   <input
                     type="email"
                     name="email"
@@ -689,9 +689,9 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
                   />
                 </label>
               </Box>
-              <Box color={colors.white}>
+              <Box mb="5px">
                 <label>
-                  Your Website/TG Url:{' '}
+                  Website/TG Url:{' '}
                   <input
                     type="text"
                     name="websiteUrl"
@@ -700,9 +700,9 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
                   />
                 </label>
               </Box>
-              <Box color={colors.white}>
+              <Box mb="5px">
                 <label>
-                  Your Discord/Telegram User Name:{' '}
+                  Discord/Telegram User Name:{' '}
                   <input
                     type="text"
                     name="userName"
