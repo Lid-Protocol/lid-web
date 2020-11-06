@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect, forwardRef } from 'react';
+import axios from 'axios';
 import MaterialTable from 'material-table';
 import { Check, Clear, Edit } from '@material-ui/icons';
 import { Icons } from 'material-table';
@@ -236,13 +237,12 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
   };
 
   const onSubmit = (e) => {
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...formData }),
-    })
-      .then(() => alert('Success!'))
-      .catch((error) => alert(error));
+    const axiosConfig = {
+      header: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    };
+    axios
+      .post('/', encode({ 'form-name': 'contact', ...formData }), axiosConfig)
+      .then(() => {});
 
     e.preventDefault();
   };
