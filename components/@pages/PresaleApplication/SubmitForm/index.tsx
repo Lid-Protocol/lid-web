@@ -664,7 +664,13 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
             {`Presale Token(from LIQ %): ${formatFloat(calcByLIQ)}`}
           </Text>
           <Box mt="15px" fontSize="16px" fontWeight="500" color={colors.white}>
-            <form onSubmit={onSubmit} data-netlify="true">
+            <form
+              name="contact"
+              method="post"
+              data-netlify="true"
+              onSubmit={onSubmit}
+            >
+              <input type="hidden" name="form-name" value="contact" />
               <Box mb="5px">
                 <label>
                   Token Address:{' '}
