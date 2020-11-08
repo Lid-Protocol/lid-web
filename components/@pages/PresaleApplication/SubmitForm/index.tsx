@@ -237,11 +237,10 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
   };
 
   const onSubmit = (e) => {
-    const axiosConfig = {
-      header: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    };
     axios
-      .post('/', encode({ 'form-name': 'contact', ...formData }), axiosConfig)
+      .post('/', encode({ 'form-name': 'contact', ...formData }), {
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      })
       .then(() => {});
 
     e.preventDefault();
