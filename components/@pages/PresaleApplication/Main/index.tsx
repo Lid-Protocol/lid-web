@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 
 import { Box, Text, Button, FlexBox, Image, List } from 'components/@basic';
 import ContentWrapper from 'components/ContentWrapper';
@@ -7,28 +7,13 @@ import H2 from 'components/H2';
 import H3 from 'components/H3';
 
 import { colors } from 'styles/theme';
-
-import SubmitForm from '../SubmitForm';
-
 import certifiedLabelImage from './certified-label.png';
 import LIDCertifiedLogoImage from './lid-certified-logo.png';
 
 const Header: FC = () => {
-  const [modalIsOpen, setIsOpen] = useState(false);
-
-  const openModal = () => {
-    setIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
-
   return (
     <>
       <ContentWrapper>
-        <SubmitForm isOpen={modalIsOpen} closeModal={closeModal} />
-
         <FlexBox
           flexDirection={['column-reverse', 'column-reverse', 'row']}
           mt={5}
@@ -72,14 +57,13 @@ const Header: FC = () => {
               </Text>
 
               <Button
-                as="button"
+                as="a"
                 variant="gradient"
                 mt={5}
                 mr={4}
                 mb={[4, 0]}
                 alignSelf={['inherit', 'inherit', 'flex-start']}
-                onClick={openModal}
-                // href="mailto:team@lid.sh"
+                href="/termsheet"
               >
                 Submit Application
               </Button>
