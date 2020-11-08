@@ -653,12 +653,10 @@ const SubmitForm: FC = () => {
             >
               <form
                 name="contact"
-                method="post"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
                 onSubmit={onSubmit}
               >
-                <input type="hidden" name="form-name" value="contact" />
                 <Box mb="5px">
                   <label>
                     Token Address:{' '}
