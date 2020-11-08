@@ -667,6 +667,7 @@ const SubmitForm: FC<IProps> = ({ isOpen, closeModal }) => {
               name="contact"
               method="post"
               data-netlify="true"
+              data-netlify-honeypot="bot-field"
               onSubmit={onSubmit}
             >
               <input type="hidden" name="form-name" value="contact" />
