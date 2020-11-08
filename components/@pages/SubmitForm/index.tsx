@@ -212,10 +212,25 @@ const SubmitForm: FC = () => {
   };
 
   const onSubmit = (e) => {
+    let calcByLIQ = 0;
+    bonusRange.map((el) => (calcByLIQ = calcByLIQ + el.presaleTokens));
+
     axios
-      .post('/', encode({ 'form-name': 'contact', ...formData }), {
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      })
+      .post(
+        '/',
+        encode({
+          'form-name': 'contact',
+          ...formData,
+          tokenPresale,
+          tokenDistribution,
+          ethDistribution,
+          bonusRange,
+          calcByLIQ,
+        }),
+        {
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        }
+      )
       .then(() => {});
 
     e.preventDefault();
