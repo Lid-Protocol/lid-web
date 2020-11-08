@@ -246,7 +246,7 @@ const SubmitForm: FC = () => {
 
   return (
     <>
-      <ContentWrapper>
+      <Box paddingX="5%">
         <FlexBox
           mt={5}
           pt={4}
@@ -719,7 +719,7 @@ const SubmitForm: FC = () => {
             </Box>
           </Box>
         </FlexBox>
-      </ContentWrapper>
+      </Box>
     </>
   );
 };
