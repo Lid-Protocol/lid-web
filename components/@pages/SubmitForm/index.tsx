@@ -651,12 +651,7 @@ const SubmitForm: FC = () => {
               fontWeight="500"
               color={colors.white}
             >
-              <form
-                name="contact"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
-                onSubmit={onSubmit}
-              >
+              <form name="contact" data-netlify="true" onSubmit={onSubmit}>
                 <Box mb="5px">
                   <label>
                     Token Address:{' '}
