@@ -57,7 +57,7 @@ const Header: FC = () => {
               </Text>
 
               <Button
-                as="button"
+                as="a"
                 variant="gradient"
                 mt={5}
                 mr={4}

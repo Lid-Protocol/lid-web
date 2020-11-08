@@ -248,6 +248,8 @@ const SubmitForm: FC = () => {
     <>
       <ContentWrapper>
         <FlexBox
+          mt={5}
+          pt={4}
           flexDirection={['column', 'row']}
           justifyContent="space-between"
           marginBottom={['20px']}
@@ -471,6 +473,8 @@ const SubmitForm: FC = () => {
         <FlexBox
           flexDirection={['column', 'row']}
           justifyContent="space-between"
+          mb={5.5}
+          pb={6}
         >
           <Box flex={1}>
             <MaterialTable
