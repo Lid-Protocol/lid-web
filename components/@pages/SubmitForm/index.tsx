@@ -481,6 +481,7 @@ const SubmitForm: FC = () => {
           <Box flex={1}>
             <MaterialTable
               title="Bonus Range"
+              style={{ height: '100%' }}
               icons={tableIcons}
               columns={[
                 {
