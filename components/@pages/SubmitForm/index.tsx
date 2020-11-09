@@ -183,7 +183,7 @@ const SubmitForm: FC = () => {
   };
 
   const onChangeLiqXETH = (value) => {
-    if (value > 80 || value < 0) {
+    if (value > 60 || value < 45) {
       return;
     }
 
@@ -195,7 +195,7 @@ const SubmitForm: FC = () => {
   };
 
   const onChangeLiq = (value) => {
-    if (value < 0 || value >= 100) {
+    if (value < 14 || value > 24) {
       return;
     }
 
