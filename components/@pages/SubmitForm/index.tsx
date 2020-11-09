@@ -1,11 +1,11 @@
 import React, { FC, useState, useEffect, forwardRef } from 'react';
+import ReactExport from 'react-data-export';
 import axios from 'axios';
 import MaterialTable from 'material-table';
 import { Check, Clear, Edit } from '@material-ui/icons';
 import { Icons } from 'material-table';
 
 import { Box, Text, Button, FlexBox, Input } from 'components/@basic';
-import ContentWrapper from 'components/ContentWrapper';
 import H2 from 'components/H2';
 import { colors } from 'styles/theme';
 
@@ -24,6 +24,19 @@ const encode = (data) => {
     .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
     .join('&');
 };
+
+const formatColumns = (data: any) => {
+  return Object.keys(data).map((key) => ({ title: key }));
+};
+
+const formatData = (data: any) => {
+  return Object.keys(data).map((key) => ({
+    value: data[key],
+  }));
+};
+
+const ExcelFile = ReactExport.ExcelFile;
+const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
 
 const SubmitForm: FC = () => {
   const [liq, setLIQ] = useState(19.82);
@@ -245,6 +258,51 @@ const SubmitForm: FC = () => {
 
   let calcByLIQ = 0;
   bonusRange.map((el) => (calcByLIQ = calcByLIQ + el.presaleTokens));
+
+  const dataSet = [
+    {
+      columns: formatColumns(tokenPresale),
+      data: [formatData(tokenPresale)],
+    },
+    {
+      columns: formatColumns(tokenDistribution),
+      data: [formatData(tokenDistribution)],
+    },
+    {
+      columns: formatColumns(ethDistribution),
+      data: [formatData(ethDistribution)],
+    },
+    {
+      columns: [
+        { title: 'ethStart' },
+        { title: 'bonus' },
+        { title: 'basePrice' },
+        { title: 'afterReferral' },
+        { title: 'presaleTokens' },
+      ],
+      data: bonusRange.map((range) => [
+        {
+          value: range.ethStart,
+        },
+        {
+          value: range.bonus,
+        },
+        {
+          value: range.basePrice,
+        },
+        {
+          value: range.afterReferral,
+        },
+        {
+          value: range.presaleTokens,
+        },
+      ]),
+    },
+    {
+      columns: [{ title: 'calcByLIQ' }],
+      data: [[{ value: calcByLIQ }]],
+    },
+  ];
 
   return (
     <>
@@ -573,9 +631,24 @@ const SubmitForm: FC = () => {
             marginTop={['10px', '0px']}
             backgroundColor="#4a4a4a"
           >
-            <H2 color={colors.white} marginBottom={10}>
-              Result
-            </H2>
+            <FlexBox justifyContent="space-between">
+              <H2 color={colors.white} marginBottom={10}>
+                Result
+              </H2>
+              <ExcelFile
+                element={
+                  <Button
+                    as="a"
+                    variant="gradient"
+                    alignSelf={['inherit', 'inherit', 'flex-start']}
+                  >
+                    Download the Sheet
+                  </Button>
+                }
+              >
+                <ExcelSheet dataSet={dataSet} name="TermSheet" />
+              </ExcelFile>
+            </FlexBox>
             <FlexBox marginBottom="10px" flexDirection="row">
               <Text
                 fontSize="16px"
@@ -705,7 +778,7 @@ const SubmitForm: FC = () => {
                 </Box>
                 <Box mb="5px">
                   <label>
-                    Upload CSV:{' '}
+                    Upload the sheet:{' '}
                     <input
                       type="file"
                       name="attachment"
