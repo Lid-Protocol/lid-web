@@ -710,7 +710,7 @@ const SubmitForm: FC = () => {
                       type="file"
                       name="attachment"
                       onChange={(e) =>
-                        onChangeForm('attachment', e.target.files[0])
+                        onChangeForm('attachment', e.target.files![0])
                       }
                     />
                   </label>
