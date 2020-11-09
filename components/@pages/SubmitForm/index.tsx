@@ -212,31 +212,18 @@ const SubmitForm: FC = () => {
   };
 
   const onSubmit = (e) => {
-    let calcByLIQ = 0;
-    bonusRange.map((el) => (calcByLIQ = calcByLIQ + el.presaleTokens));
-
     axios
-      .post(
-        '/',
-        encode({
-          'form-name': 'contact',
-          ...formData,
-          tokenPresale,
-          tokenDistribution,
-          ethDistribution,
-          bonusRange,
-          calcByLIQ,
-        }),
-        {
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        }
-      )
-      .then(() => {});
+      .post('/', encode({ 'form-name': 'contact', ...formData }), {
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      })
+      .then(() => {
+        alert('Success, Thanks for your submission');
+      });
 
     e.preventDefault();
   };
 
-  const onChangeForm = (key: string, val: string) => {
+  const onChangeForm = (key: string, val: any) => {
     console.log(key, val);
     setFormData((prev) => ({
       ...prev,
@@ -712,6 +699,18 @@ const SubmitForm: FC = () => {
                       name="userName"
                       value={formData.userName}
                       onChange={(e) => onChangeForm('userName', e.target.value)}
+                    />
+                  </label>
+                </Box>
+                <Box mb="5px">
+                  <label>
+                    Upload CSV:{' '}
+                    <input
+                      type="file"
+                      name="attachment"
+                      onChange={(e) =>
+                        onChangeForm('attachment', e.target.files[0])
+                      }
                     />
                   </label>
                 </Box>
