@@ -114,7 +114,9 @@ export default function Blog() {
                 (window.location = window.location.href + '?pageid=' + data.id)
               }
             >
-              <img src={data.picture} height="204px" width="290px" />
+              {data.picture && (
+                <img src={data.picture} height="204px" width="290px" />
+              )}
 
               <h2> {data.title} </h2>
 
