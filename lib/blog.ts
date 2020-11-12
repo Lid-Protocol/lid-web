@@ -9,6 +9,25 @@ interface BlogMeta {
 
 export const BlogData: BlogMeta[] = [
   {
+    id: 11,
+    picture: 'https://www.finminity.finance/assets/html/images/logo.png',
+    title: 'AMA with Finminity',
+    content:
+      'We just had an AMA session with our Premium Launch with Finminity Project that will be launched on 12th of November.',
+    readtime: 'Nov 12th, 2020 14 min read',
+    ipfsHash: 'QmaU6h9gvr8BptxzvRDSzBogENrJ43eRbLhTdJoF7DQCu7',
+  },
+  {
+    id: 10,
+    picture:
+      'https://ipfs.io/ipfs/QmVGKqjwTjZzmiVuWoiZuqvAJqm5WzK5yioczUy5iSBmQq',
+    title: 'AMA with LID Team | LID Protocol Update',
+    content:
+      'As Community Driven Project, we would like to share everything to our community about our future plans, developments and milestones so we decided to conduct an AMA session within the team. We also rewarded our community by giving their best questions.',
+    readtime: 'Nov 12th, 2020 14 min read',
+    ipfsHash: 'QmQ7ty5HQA6XynfrhK9wZGHL6GpuM3v6qzkR8EUXxGErzQ',
+  },
+  {
     id: 9,
     picture:
       'https://ipfs.io/ipfs/QmTtd2KGhhXGG9pLPCfhiEivNgNg3r4b3JVjqLkTJ3PGGY',
