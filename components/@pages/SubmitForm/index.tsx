@@ -1,19 +1,10 @@
 import React, { FC, useState, useEffect, forwardRef } from 'react';
 import ReactExport from 'react-data-export';
 import axios from 'axios';
-import MaterialTable from 'material-table';
-import { Check, Clear, Edit } from '@material-ui/icons';
-import { Icons } from 'material-table';
 
 import { Box, Text, Button, FlexBox, Input } from 'components/@basic';
 import H2 from 'components/H2';
 import { colors } from 'styles/theme';
-
-const tableIcons: Icons = {
-  Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
-  Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
-  Edit: forwardRef((props, ref) => <Edit {...props} ref={ref} />),
-};
 
 const formatFloat = (val: number) => {
   return parseFloat(val.toFixed(2));
@@ -76,59 +67,6 @@ const SubmitForm: FC = () => {
     lid: 5,
   });
 
-  const [bonusRange, setBonusRange] = useState([
-    {
-      ethStart: 0,
-      bonus: 5,
-      basePrice: 0,
-      afterReferral: 0,
-      presaleTokens: 0,
-      tableData: {
-        id: 0,
-      },
-    },
-    {
-      ethStart: 100,
-      bonus: 4.5,
-      basePrice: 0,
-      afterReferral: 0,
-      presaleTokens: 0,
-      tableData: {
-        id: 1,
-      },
-    },
-    {
-      ethStart: 200,
-      bonus: 4,
-      basePrice: 0,
-      afterReferral: 0,
-      presaleTokens: 0,
-      tableData: {
-        id: 2,
-      },
-    },
-    {
-      ethStart: 300,
-      bonus: 3.5,
-      basePrice: 149,
-      afterReferral: 145,
-      presaleTokens: 29730,
-      tableData: {
-        id: 3,
-      },
-    },
-    {
-      ethStart: 500,
-      bonus: 3,
-      basePrice: 0,
-      afterReferral: 0,
-      presaleTokens: 0,
-      tableData: {
-        id: 4,
-      },
-    },
-  ]);
-
   const updateData = () => {
     const totalEthLiq =
       ethDistribution.xEth + ethDistribution.xLid + ethDistribution.xTusd;
@@ -162,24 +100,6 @@ const SubmitForm: FC = () => {
       ...prevState,
       price: formatFloat(tokenPrice),
     }));
-
-    const updatedRange: any[] = [];
-    for (let i = 0; i < bonusRange.length; i++) {
-      const basePrice = (1 + bonusRange[i].bonus / 100) * tokenPrice;
-
-      updatedRange[i] = {
-        ...bonusRange[i],
-        basePrice: formatFloat(basePrice),
-        afterReferral: formatFloat(basePrice / 1.25),
-        presaleTokens: formatFloat(
-          basePrice *
-            (i === bonusRange.length - 1
-              ? tokenPresale.hardcap - bonusRange[i].ethStart
-              : bonusRange[i + 1].ethStart - bonusRange[i].ethStart)
-        ),
-      };
-    }
-    setBonusRange(updatedRange);
   };
 
   const onChangeLiqXETH = (value) => {
@@ -257,7 +177,6 @@ const SubmitForm: FC = () => {
   }, []);
 
   let calcByLIQ = 0;
-  bonusRange.map((el) => (calcByLIQ = calcByLIQ + el.presaleTokens));
 
   const dataSet = [
     {
@@ -272,32 +191,7 @@ const SubmitForm: FC = () => {
       columns: formatColumns(ethDistribution),
       data: [formatData(ethDistribution)],
     },
-    {
-      columns: [
-        { title: 'ethStart' },
-        { title: 'bonus' },
-        { title: 'basePrice' },
-        { title: 'afterReferral' },
-        { title: 'presaleTokens' },
-      ],
-      data: bonusRange.map((range) => [
-        {
-          value: range.ethStart,
-        },
-        {
-          value: range.bonus,
-        },
-        {
-          value: range.basePrice,
-        },
-        {
-          value: range.afterReferral,
-        },
-        {
-          value: range.presaleTokens,
-        },
-      ]),
-    },
+
     {
       columns: [{ title: 'calcByLIQ' }],
       data: [[{ value: calcByLIQ }]],
@@ -536,92 +430,6 @@ const SubmitForm: FC = () => {
           mb={5.5}
           pb={6}
         >
-          <Box flex={1}>
-            <MaterialTable
-              title="Bonus Range"
-              style={{ height: '100%' }}
-              icons={tableIcons}
-              columns={[
-                {
-                  title: 'ETH Start',
-                  field: 'ethStart',
-                  filtering: false,
-                  sorting: false,
-                },
-                {
-                  title: 'Bonus',
-                  field: 'bonus',
-                  filtering: false,
-                  editable: 'never',
-                },
-                {
-                  title: 'Base Price',
-                  field: 'basePrice',
-                  filtering: false,
-                  editable: 'never',
-                },
-                {
-                  title: 'After Referral',
-                  field: 'afterReferral',
-                  filtering: false,
-                  editable: 'never',
-                },
-                {
-                  title: 'Presale Tokens',
-                  field: 'presaleTokens',
-                  filtering: false,
-                  editable: 'never',
-                },
-              ]}
-              data={bonusRange}
-              options={{
-                search: false,
-                sorting: false,
-                paging: false,
-              }}
-              editable={{
-                onRowUpdate: (newData, oldData) =>
-                  new Promise((resolve, reject) => {
-                    setTimeout(() => {
-                      const updatedIndex = oldData!.tableData.id;
-                      const updatedEthStart = Number(newData.ethStart);
-                      const maxEthStart =
-                        updatedIndex < 4
-                          ? bonusRange[updatedIndex + 1].ethStart
-                          : hardcap;
-                      if (
-                        isNaN(updatedEthStart) ||
-                        updatedEthStart > maxEthStart
-                      ) {
-                        reject();
-                      } else {
-                        let updatedRange = bonusRange;
-                        updatedRange[updatedIndex].ethStart = updatedEthStart;
-
-                        updatedRange.map((data, index) => {
-                          const basePrice = (1 + data.bonus / 100) * price;
-                          return {
-                            ...data,
-                            basePrice: formatFloat(basePrice),
-                            afterReferral: formatFloat(basePrice / 1.25),
-                            presaleTokens: formatFloat(
-                              basePrice *
-                                (index === updatedRange.length - 1
-                                  ? hardcap - data.ethStart
-                                  : updatedRange[index + 1].ethStart -
-                                    data.ethStart)
-                            ),
-                          };
-                        });
-                        setBonusRange(updatedRange);
-                        resolve();
-                      }
-                    }, 1000);
-                  }),
-              }}
-            />
-          </Box>
-
           <Box
             flex={1}
             borderRadius={['10px']}
