@@ -9,6 +9,28 @@ interface BlogMeta {
 
 export const BlogData: BlogMeta[] = [
   {
+    id: 13,
+    picture:
+      'https://ipfs.io/ipfs/QmT5uMk9QFkF2BzDPrdkHkVhTZCzzukmn6ka1Q5Ev6QPwX',
+    title: 'LID LIFTOFF and LID DAO are coming',
+    content:
+      'LID LIFTOFF and LID DAO are coming - tapping into almost 30m tokens to capitalize on the #DeFi boom!',
+    ipfsHash: 'QmVcHEFwNtqe1CjuzSVssLMq19UwZxuNqVxC51ZZLXKFh3',
+    readtime: 'Nov 20th, 2020 14 min read',
+  },
+  {
+    id: 12,
+    picture:
+      'https://ipfs.io/ipfs/QmUr7iJrgS2CqMK9rUKc5SKoxwskwu5Y7AkgUNqZHpRrAt',
+    title: 'LID Transition to DAO Governance begins Friday',
+    content: `We are thrilled to announce that LID’s DAO after many long awaited months will
+    be live on the Aragon Dao platform today! LID’s goal since day one has been to
+    be a fully community run project, and the best way to achieve this is through
+    DAO Governance.`,
+    ipfsHash: 'QmY6jBE1NZWacg8FpbroYB72PewGgHGeakP7tQHqGbLd6z',
+    readtime: 'Nov 20th, 2020 10 min read',
+  },
+  {
     id: 11,
     picture: 'https://www.finminity.finance/assets/html/images/logo.png',
     title: 'AMA with Finminity',
