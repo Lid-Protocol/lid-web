@@ -11,7 +11,7 @@ import githubIcon from './github.png';
 const socialLinks = [
   {
     title: 'Discord',
-    href: 'https://discord.gg/3bwjgF',
+    href: 'https://discord.gg/r4CDyEnUAm',
     iconSrc: discordIcon,
   },
   {
@@ -52,7 +52,7 @@ const SocialLinksList: BoxType = ({ ...props }) => (
             height={[32, 40]}
             borderRadius="50%"
           >
-            <a href={href}>
+            <a href={href} target="_blank" rel="noopener noreferrer">
               <Image height="100%" width="100%" src={iconSrc} alt={title} />
             </a>
           </Box>
