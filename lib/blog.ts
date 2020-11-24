@@ -9,6 +9,16 @@ interface BlogMeta {
 
 export const BlogData: BlogMeta[] = [
   {
+    id: 14,
+    picture:
+      'https://ipfs.io/ipfs/QmaMXvupU81ybmDfxDarmbd88EEgkDarV24CSzhmzLecxA',
+    title: 'LID’s Top Six Resources to Track and Monitor DeFi',
+    content:
+      'Decentralized Finance or DeFi is an alternative form of finance that differs from traditional finance in the sense that it does not require a central authority or body to facilitate or manage services.',
+    ipfsHash: 'QmXU3zYV1nYMTDaj4caexFVeUXhA5A8vuri5xU9EpyntD5',
+    readtime: 'Nov 24th, 2020 7 min read',
+  },
+  {
     id: 13,
     picture:
       'https://ipfs.io/ipfs/QmT5uMk9QFkF2BzDPrdkHkVhTZCzzukmn6ka1Q5Ev6QPwX',
