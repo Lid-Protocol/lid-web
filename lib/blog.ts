@@ -9,6 +9,16 @@ interface BlogMeta {
 
 export const BlogData: BlogMeta[] = [
   {
+    id: 15,
+    picture:
+      'https://ipfs.io/ipfs/QmSBUqNQcJd7iRxnffJYB2wyViudCz36W3f61BqW7wNcY1',
+    title: 'AMA with LID Team | New Updates and Announcements',
+    content:
+      'As we end the year, we, the LID team wants to ensure that our community is updated with our updates and upcoming announcements. It covers everything for our upcoming events and especially with our LID DAO and LIFTOFF!',
+    ipfsHash: 'QmWBwfTu1aU9AjKZ5ZwD9cbUn1fmSRnSwKNn4XmMP4XXkN',
+    readtime: 'Dec 27th 12 min read',
+  },
+  {
     id: 14,
     picture:
       'https://ipfs.io/ipfs/QmaMXvupU81ybmDfxDarmbd88EEgkDarV24CSzhmzLecxA',
