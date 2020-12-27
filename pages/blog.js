@@ -55,6 +55,7 @@ export default function Blog() {
   const [veiwingPage, setVeiwingPage] = useState(false);
   const [ipfsHash, setIpfsHash] = useState('');
   const [readTime, setReadTime] = useState('');
+  const [title, setTitle] = useState('');
 
   function updatePageById(id) {
     BlogData.map((data) => {
@@ -62,6 +63,7 @@ export default function Blog() {
         setVeiwingPage(true);
         setIpfsHash(data.ipfsHash);
         setReadTime(data.readtime);
+        setTitle(data.title);
         window.scrollTo(0, 0);
       }
     });
@@ -84,7 +86,7 @@ export default function Blog() {
     return (
       //Pass ID or IPFS hash to render in given blog post
       <>
-        <DeFiArticle Read_Time={readTime} IPFShash={ipfsHash} />
+        <DeFiArticle title={title} Read_Time={readTime} IPFShash={ipfsHash} />
       </>
     );
   } else {
