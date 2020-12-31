@@ -67,7 +67,7 @@ const Footer: FC = () => (
     <SocialLinksList mb={5} />
 
     <Text display="block" textAlign="center" fontSize={2} color="gray" py={4.5}>
-      &copy; 2020 Liquidity Dividends Protocol. All rights reserved.
+      &copy; 2021 Liquidity Dividends Protocol. All rights reserved.
     </Text>
   </ContentWrapper>
 );
