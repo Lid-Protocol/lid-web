@@ -10,7 +10,8 @@ interface BlogMeta {
 export const BlogData: BlogMeta[] = [
   {
     id: 16,
-    picture: 'QmQut8YwAAxk3vzYGVvGR8oR1VmC6NfivVkq7adkQnM9xG',
+    picture:
+      'https://ipfs.io/ipfs/QmQut8YwAAxk3vzYGVvGR8oR1VmC6NfivVkq7adkQnM9xG',
     title: 'Introducing LIFTOFF & Crash Insurance',
     content:
       'LID Protocol has always been at the forefront of the presale fundraising and liquidity locking curve. With the imminent release of LIFTOFF, this same pattern continues today, and in to the future.',
