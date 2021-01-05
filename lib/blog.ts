@@ -15,7 +15,7 @@ export const BlogData: BlogMeta[] = [
     title: 'Introducing LIFTOFF & Crash Insurance',
     content:
       'LID Protocol has always been at the forefront of the presale fundraising and liquidity locking curve. With the imminent release of LIFTOFF, this same pattern continues today, and in to the future.',
-    ipfsHash: 'QmYQ7nHqxnmSb6KzpmGxpJ9NF8KXD8vPNfLbJebGafuZgD',
+    ipfsHash: 'Qmbmfg6VAksuUtbU5j86gYG4UmMhgLDfiZqeokg2SLAd3J',
     readtime: 'Jan 2nd 15 min read',
   },
   {
