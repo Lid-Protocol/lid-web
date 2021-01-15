@@ -22,20 +22,20 @@ const Header: FC = () => (
     </Text>
 
     <Box mt={5}>
-      <Button
-        variant="gradient"
-        mr={4}
-        mb={[4, 0]}
-        href="https://stake.lid.sh/"
-      >
+      <Button variant="gradient" mb={[4, 0]} href="https://stake.lid.sh/">
         Staking Dapp
       </Button>
 
       <Button
+        ml={4}
         variant="outline"
         href="https://uniswap.info/pair/0xc822d85d2dcedfaf2cefcf69dbd5588e7ffc9f10"
       >
         Uniswap
+      </Button>
+
+      <Button ml={4} variant="outline" href="https://liftoff.finance">
+        LiftOff Dapp
       </Button>
     </Box>
   </Wrapper>
