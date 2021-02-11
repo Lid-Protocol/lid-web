@@ -22,19 +22,19 @@ const Header: FC = () => (
     </Text>
 
     <Box mt={5}>
-      <Button variant="gradient" mb={[4, 0]} href="https://stake.lid.sh/">
+      <Button variant="gradient" mb={[4, 0]} href="https://stake.lid.eth.link/">
         Staking Dapp
       </Button>
 
       <Button
         ml={4}
         variant="outline"
-        href="https://uniswap.info/pair/0xc822d85d2dcedfaf2cefcf69dbd5588e7ffc9f10"
+        href="https://penguinswap.eth.link/#/swap?inputCurrency=0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2&outputCurrency=0x0417912b3a7AF768051765040A55BB0925D4DDcF"
       >
-        Uniswap
+        PenguinSwap
       </Button>
 
-      <Button ml={4} variant="outline" href="https://liftoff.finance">
+      <Button ml={4} variant="outline" href="https://liftoff.eth.link">
         LiftOff Dapp
       </Button>
     </Box>
