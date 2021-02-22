@@ -31,7 +31,7 @@ const socialLinks = [
   },
   {
     title: 'GitHub',
-    href: 'https://github.com/carlsbad-sunshine/lid-contracts',
+    href: 'https://github.com/lid-protocol',
     iconSrc: githubIcon,
   },
 ];
