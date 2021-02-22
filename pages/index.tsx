@@ -21,11 +21,6 @@ export default function Home (): any {
 
         <Header />
         <About />
-        <CertifiedPresaleInfo />
-        <TokenDistributionSection />
-        <Roadmap />
-        <FAQ />
-        <Partners />
         <Legal />
       </>
     )

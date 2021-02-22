@@ -2,12 +2,8 @@ import { List } from 'components/@basic';
 
 export const menuItems = Object.entries({
   About: '/#about',
-  Tokenomics: '/#tokenomics',
-  Roadmap: '/#roadmap',
   FAQ: '/#faq',
-  Socials: '/#footer',
-  Blog: "/blog",
-  Application: '/application',
+  Socials: '/#footer'
 });
 
 const HorizontalMenu = () => (

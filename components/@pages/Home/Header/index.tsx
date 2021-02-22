@@ -16,9 +16,9 @@ const Header: FC = () => (
       fontWeight="500"
       lineHeight="1.5em"
     >
-      The Liquidity Dividends Protocol uses new technology that provides
-      solutions for depositing liquidity into Uniswap while also offering a
-      social rewards based staking system.
+      The LID token by Liquidity Dividends Protocol allows stakers to earn
+      rewards from bots trading on Uniswap while gaining exposure
+      to the wide variety of assets paired against LID as locked liquidity.
     </Text>
 
     <Box mt={5}>

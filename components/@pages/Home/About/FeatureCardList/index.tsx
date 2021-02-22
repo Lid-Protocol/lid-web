@@ -8,23 +8,23 @@ import licensedLIDIcon from './licensed-lid-icon.png';
 
 const featureCards: FeatureCardProps[] = [
   {
-    title: 'Secure Purchases',
-    description: 'Liquidity Dividends Protocol solves the issue of Uniswap exit scamming by using standardized non-custodial presale smart contracts that lock liquidity.',
+    title: 'Decentralization',
+    description: 'Liquidity Dividends Protocol provides a fully complete and operational decentralized liquidity service without any central third parties who promote or maintain the LID token.',
     iconSrc: securePurchasesIcon,
   },
   {
-    title: 'Social Referrals',
-    description: 'All buyers will pay a fee in ETH. This will go into a referral pool where 2.5% of all deposits are available to the pool. When someone uses your referral code you get 2.5% of what they deposit.',
+    title: 'Diversification',
+    description: 'LID tokens are paired against a wide variety of microcap tokens as locked liquidity on Uniswap providing holders with full exposure to this entire suite of cryptoassets.',
     iconSrc: socialReferralsIcon,
   },
   {
-    title: 'Community Driven',
-    description: 'The LID team wanted to focus on incentivizing stakers to perform useful actions for the community by participating in a DAO. Between a transaction tax sent to the DAO fund, voting participation multiplier, and a referral program this is a truly community driven project.',
+    title: 'Bots Pay Stakers',
+    description: 'LID stakers earn a 1.9% fee from each transaction as arbitration bots balance the various pairs on Uniswap. These arbitration bots are run by third parties who may not even know of LID.',
     iconSrc: communityDrivenIcon,
   },
   {
-    title: 'Licensed LID',
-    description: 'The Liquidity Dividends Protocol has developed new technologies for securely depositing liquidity generated via presale into Uniswap. The goal is to license this technology out to other projects which will end Exit scams..',
+    title: 'Audited',
+    description: 'The Liquidity Dividends Protocol technology has been audited by Halborn, the same security firm which services Coinbase, Bancor, and Stellar.',
     iconSrc: licensedLIDIcon,
   },
 ];

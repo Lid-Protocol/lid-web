@@ -21,10 +21,6 @@ const About: FC = () => (
       <FlexBox flexDirection="column" alignItems="center" flexWrap="wrap">
         <H2 marginBottom={4}>Main Features</H2>
 
-        <DownloadBtn variant="white" href="static/whitepaper.pdf" download>
-          Download Whitepaper
-        </DownloadBtn>
-
         <FeatureCardList marginTop={5.5} marginX="auto" width="100%" />
       </FlexBox>
     </ContentWrapper>
