@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "license": "GPL-3.0-only",
   "engines": {
-    "node": "12.x",
+    "node": "15.x",
     "yarn": "1.x"
   },
   "scripts": {
